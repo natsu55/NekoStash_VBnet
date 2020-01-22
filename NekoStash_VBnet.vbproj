@@ -95,6 +95,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="NekostashDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NekostashDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Nekostash_DBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Nekostash_DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Nekostash_DBDataSet.vb">
+      <DependentUpon>Nekostash_DBDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -118,6 +131,33 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="NekostashDataSet.xsc">
+      <DependentUpon>NekostashDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NekostashDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NekostashDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NekostashDataSet.xss">
+      <DependentUpon>NekostashDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Nekostash_DBDataSet.xsc">
+      <DependentUpon>Nekostash_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Nekostash_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Nekostash_DBDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Nekostash_DBDataSet.xss">
+      <DependentUpon>Nekostash_DBDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Nekostash.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
