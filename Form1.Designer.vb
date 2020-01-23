@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,21 +20,25 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim SerialLabel As System.Windows.Forms.Label
-        Dim StatusLabel As System.Windows.Forms.Label
-        Dim PICLabel As System.Windows.Forms.Label
-        Dim CaseLabel As System.Windows.Forms.Label
-        Dim MemoLabel As System.Windows.Forms.Label
-        Dim Registration_TypeLabel As System.Windows.Forms.Label
-        Dim SignatureLabel As System.Windows.Forms.Label
-        Dim AccessoryLabel As System.Windows.Forms.Label
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.grdProperties = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SerialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PICDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CaseDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MemoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RegistrationTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SignatureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AccessoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NekoAssetsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.NekostashDataSet = New NekoStash_VBnet.NekostashDataSet()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtboxSearch = New System.Windows.Forms.TextBox()
         Me.Label_SearchValue = New System.Windows.Forms.Label()
@@ -46,6 +50,12 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtboxMemo = New System.Windows.Forms.TextBox()
+        Me.txtboxAcc_list = New System.Windows.Forms.TextBox()
+        Me.txtboxCase = New System.Windows.Forms.TextBox()
+        Me.txtboxSignature = New System.Windows.Forms.TextBox()
+        Me.txtboxSN = New System.Windows.Forms.TextBox()
+        Me.txtboxPIC = New System.Windows.Forms.TextBox()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnAddAccessory = New System.Windows.Forms.Button()
@@ -66,61 +76,23 @@ Partial Class Form1
         Me.rbtnIn = New System.Windows.Forms.RadioButton()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.NekostashDataSet = New NekoStash_VBnet.NekostashDataSet()
         Me.NekoAssetsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NekoAssetsTableAdapter = New NekoStash_VBnet.NekostashDataSetTableAdapters.NekoAssetsTableAdapter()
         Me.TableAdapterManager = New NekoStash_VBnet.NekostashDataSetTableAdapters.TableAdapterManager()
-        Me.NekoAssetsBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
-        Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
-        Me.NekoAssetsBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.NekoAssetsDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SerialTextBox = New System.Windows.Forms.TextBox()
-        Me.StatusTextBox = New System.Windows.Forms.TextBox()
-        Me.PICTextBox = New System.Windows.Forms.TextBox()
-        Me.CaseTextBox = New System.Windows.Forms.TextBox()
-        Me.MemoTextBox = New System.Windows.Forms.TextBox()
-        Me.Registration_TypeTextBox = New System.Windows.Forms.TextBox()
-        Me.SignatureTextBox = New System.Windows.Forms.TextBox()
-        Me.AccessoryTextBox = New System.Windows.Forms.TextBox()
-        SerialLabel = New System.Windows.Forms.Label()
-        StatusLabel = New System.Windows.Forms.Label()
-        PICLabel = New System.Windows.Forms.Label()
-        CaseLabel = New System.Windows.Forms.Label()
-        MemoLabel = New System.Windows.Forms.Label()
-        Registration_TypeLabel = New System.Windows.Forms.Label()
-        SignatureLabel = New System.Windows.Forms.Label()
-        AccessoryLabel = New System.Windows.Forms.Label()
+        Me.NekostashDataSet1 = New NekoStash_VBnet.NekostashDataSet()
+        Me.NekostashDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.grdProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NekoAssetsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NekoAssetsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NekoAssetsBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.NekoAssetsBindingNavigator.SuspendLayout()
-        CType(Me.NekoAssetsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NekostashDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NekostashDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -152,23 +124,7 @@ Partial Class Form1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(AccessoryLabel)
-        Me.GroupBox2.Controls.Add(Me.AccessoryTextBox)
-        Me.GroupBox2.Controls.Add(SignatureLabel)
-        Me.GroupBox2.Controls.Add(Me.SignatureTextBox)
-        Me.GroupBox2.Controls.Add(Registration_TypeLabel)
-        Me.GroupBox2.Controls.Add(Me.Registration_TypeTextBox)
-        Me.GroupBox2.Controls.Add(MemoLabel)
-        Me.GroupBox2.Controls.Add(Me.MemoTextBox)
-        Me.GroupBox2.Controls.Add(CaseLabel)
-        Me.GroupBox2.Controls.Add(Me.CaseTextBox)
-        Me.GroupBox2.Controls.Add(PICLabel)
-        Me.GroupBox2.Controls.Add(Me.PICTextBox)
-        Me.GroupBox2.Controls.Add(StatusLabel)
-        Me.GroupBox2.Controls.Add(Me.StatusTextBox)
-        Me.GroupBox2.Controls.Add(SerialLabel)
-        Me.GroupBox2.Controls.Add(Me.SerialTextBox)
-        Me.GroupBox2.Controls.Add(Me.NekoAssetsDataGridView)
+        Me.GroupBox2.Controls.Add(Me.grdProperties)
         Me.GroupBox2.Controls.Add(Me.btnSearch)
         Me.GroupBox2.Controls.Add(Me.txtboxSearch)
         Me.GroupBox2.Controls.Add(Me.Label_SearchValue)
@@ -176,10 +132,97 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.Label_Search)
         Me.GroupBox2.Location = New System.Drawing.Point(390, 9)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(639, 399)
+        Me.GroupBox2.Size = New System.Drawing.Size(610, 385)
         Me.GroupBox2.TabIndex = 30
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Asset Search"
+        '
+        'grdProperties
+        '
+        Me.grdProperties.AllowUserToAddRows = False
+        Me.grdProperties.AllowUserToDeleteRows = False
+        Me.grdProperties.AutoGenerateColumns = False
+        Me.grdProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdProperties.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.SerialDataGridViewTextBoxColumn, Me.StatusDataGridViewTextBoxColumn, Me.PICDataGridViewTextBoxColumn, Me.CaseDataGridViewTextBoxColumn, Me.MemoDataGridViewTextBoxColumn, Me.RegistrationTypeDataGridViewTextBoxColumn, Me.SignatureDataGridViewTextBoxColumn, Me.AccessoryDataGridViewTextBoxColumn})
+        Me.grdProperties.DataSource = Me.NekoAssetsBindingSource1
+        Me.grdProperties.Location = New System.Drawing.Point(8, 56)
+        Me.grdProperties.Name = "grdProperties"
+        Me.grdProperties.ReadOnly = True
+        Me.grdProperties.Size = New System.Drawing.Size(596, 315)
+        Me.grdProperties.TabIndex = 22
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'SerialDataGridViewTextBoxColumn
+        '
+        Me.SerialDataGridViewTextBoxColumn.DataPropertyName = "Serial"
+        Me.SerialDataGridViewTextBoxColumn.HeaderText = "Serial"
+        Me.SerialDataGridViewTextBoxColumn.Name = "SerialDataGridViewTextBoxColumn"
+        Me.SerialDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StatusDataGridViewTextBoxColumn
+        '
+        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
+        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
+        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
+        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PICDataGridViewTextBoxColumn
+        '
+        Me.PICDataGridViewTextBoxColumn.DataPropertyName = "PIC"
+        Me.PICDataGridViewTextBoxColumn.HeaderText = "PIC"
+        Me.PICDataGridViewTextBoxColumn.Name = "PICDataGridViewTextBoxColumn"
+        Me.PICDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CaseDataGridViewTextBoxColumn
+        '
+        Me.CaseDataGridViewTextBoxColumn.DataPropertyName = "Case"
+        Me.CaseDataGridViewTextBoxColumn.HeaderText = "Case"
+        Me.CaseDataGridViewTextBoxColumn.Name = "CaseDataGridViewTextBoxColumn"
+        Me.CaseDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'MemoDataGridViewTextBoxColumn
+        '
+        Me.MemoDataGridViewTextBoxColumn.DataPropertyName = "Memo"
+        Me.MemoDataGridViewTextBoxColumn.HeaderText = "Memo"
+        Me.MemoDataGridViewTextBoxColumn.Name = "MemoDataGridViewTextBoxColumn"
+        Me.MemoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'RegistrationTypeDataGridViewTextBoxColumn
+        '
+        Me.RegistrationTypeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Type"
+        Me.RegistrationTypeDataGridViewTextBoxColumn.HeaderText = "Registration_Type"
+        Me.RegistrationTypeDataGridViewTextBoxColumn.Name = "RegistrationTypeDataGridViewTextBoxColumn"
+        Me.RegistrationTypeDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'SignatureDataGridViewTextBoxColumn
+        '
+        Me.SignatureDataGridViewTextBoxColumn.DataPropertyName = "Signature"
+        Me.SignatureDataGridViewTextBoxColumn.HeaderText = "Signature"
+        Me.SignatureDataGridViewTextBoxColumn.Name = "SignatureDataGridViewTextBoxColumn"
+        Me.SignatureDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'AccessoryDataGridViewTextBoxColumn
+        '
+        Me.AccessoryDataGridViewTextBoxColumn.DataPropertyName = "Accessory"
+        Me.AccessoryDataGridViewTextBoxColumn.HeaderText = "Accessory"
+        Me.AccessoryDataGridViewTextBoxColumn.Name = "AccessoryDataGridViewTextBoxColumn"
+        Me.AccessoryDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'NekoAssetsBindingSource1
+        '
+        Me.NekoAssetsBindingSource1.DataMember = "NekoAssets"
+        Me.NekoAssetsBindingSource1.DataSource = Me.NekostashDataSet
+        '
+        'NekostashDataSet
+        '
+        Me.NekostashDataSet.DataSetName = "NekostashDataSet"
+        Me.NekostashDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnSearch
         '
@@ -209,9 +252,10 @@ Partial Class Form1
         '
         'cboxSearch
         '
+        Me.cboxSearch.AutoCompleteCustomSource.AddRange(New String() {"Serial", "PIC", "Signature", "Memo"})
         Me.cboxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboxSearch.FormattingEnabled = True
-        Me.cboxSearch.Items.AddRange(New Object() {"s/n", "pic", "signature", "memo", "accessory", "case"})
+        Me.cboxSearch.Items.AddRange(New Object() {"Serial", "PIC", "Signature", "Memo"})
         Me.cboxSearch.Location = New System.Drawing.Point(69, 17)
         Me.cboxSearch.Name = "cboxSearch"
         Me.cboxSearch.Size = New System.Drawing.Size(79, 21)
@@ -278,6 +322,12 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtboxMemo)
+        Me.GroupBox1.Controls.Add(Me.txtboxAcc_list)
+        Me.GroupBox1.Controls.Add(Me.txtboxCase)
+        Me.GroupBox1.Controls.Add(Me.txtboxSignature)
+        Me.GroupBox1.Controls.Add(Me.txtboxSN)
+        Me.GroupBox1.Controls.Add(Me.txtboxPIC)
         Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.btnAddAccessory)
@@ -302,6 +352,51 @@ Partial Class Form1
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Asset Registration"
+        '
+        'txtboxMemo
+        '
+        Me.txtboxMemo.Location = New System.Drawing.Point(261, 43)
+        Me.txtboxMemo.Multiline = True
+        Me.txtboxMemo.Name = "txtboxMemo"
+        Me.txtboxMemo.Size = New System.Drawing.Size(100, 87)
+        Me.txtboxMemo.TabIndex = 32
+        '
+        'txtboxAcc_list
+        '
+        Me.txtboxAcc_list.Location = New System.Drawing.Point(194, 199)
+        Me.txtboxAcc_list.Multiline = True
+        Me.txtboxAcc_list.Name = "txtboxAcc_list"
+        Me.txtboxAcc_list.Size = New System.Drawing.Size(121, 88)
+        Me.txtboxAcc_list.TabIndex = 31
+        '
+        'txtboxCase
+        '
+        Me.txtboxCase.Location = New System.Drawing.Point(194, 146)
+        Me.txtboxCase.Name = "txtboxCase"
+        Me.txtboxCase.Size = New System.Drawing.Size(100, 20)
+        Me.txtboxCase.TabIndex = 30
+        '
+        'txtboxSignature
+        '
+        Me.txtboxSignature.Location = New System.Drawing.Point(64, 300)
+        Me.txtboxSignature.Name = "txtboxSignature"
+        Me.txtboxSignature.Size = New System.Drawing.Size(100, 20)
+        Me.txtboxSignature.TabIndex = 29
+        '
+        'txtboxSN
+        '
+        Me.txtboxSN.Location = New System.Drawing.Point(33, 173)
+        Me.txtboxSN.Multiline = True
+        Me.txtboxSN.Name = "txtboxSN"
+        Me.txtboxSN.Size = New System.Drawing.Size(100, 118)
+        Me.txtboxSN.TabIndex = 28
+        '
+        'txtboxPIC
+        '
+        Me.txtboxPIC.Location = New System.Drawing.Point(33, 146)
+        Me.txtboxPIC.Name = "txtboxPIC"
+        Me.txtboxPIC.Size = New System.Drawing.Size(100, 20)
+        Me.txtboxPIC.TabIndex = 27
         '
         'btnClear
         '
@@ -477,7 +572,7 @@ Partial Class Form1
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1018, 400)
+        Me.TabPage2.Size = New System.Drawing.Size(1018, 414)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "DB Admin"
         '
@@ -487,14 +582,9 @@ Partial Class Form1
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1018, 400)
+        Me.TabPage3.Size = New System.Drawing.Size(1018, 414)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "AUDIT"
-        '
-        'NekostashDataSet
-        '
-        Me.NekostashDataSet.DataSetName = "NekostashDataSet"
-        Me.NekostashDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'NekoAssetsBindingSource
         '
@@ -511,347 +601,21 @@ Partial Class Form1
         Me.TableAdapterManager.NekoAssetsTableAdapter = Me.NekoAssetsTableAdapter
         Me.TableAdapterManager.UpdateOrder = NekoStash_VBnet.NekostashDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'NekoAssetsBindingNavigator
+        'NekostashDataSet1
         '
-        Me.NekoAssetsBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
-        Me.NekoAssetsBindingNavigator.BindingSource = Me.NekoAssetsBindingSource
-        Me.NekoAssetsBindingNavigator.CountItem = Me.BindingNavigatorCountItem
-        Me.NekoAssetsBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.NekoAssetsBindingNavigator.Dock = System.Windows.Forms.DockStyle.None
-        Me.NekoAssetsBindingNavigator.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.NekoAssetsBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.NekoAssetsBindingNavigatorSaveItem})
-        Me.NekoAssetsBindingNavigator.Location = New System.Drawing.Point(679, 6)
-        Me.NekoAssetsBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
-        Me.NekoAssetsBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
-        Me.NekoAssetsBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
-        Me.NekoAssetsBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
-        Me.NekoAssetsBindingNavigator.Name = "NekoAssetsBindingNavigator"
-        Me.NekoAssetsBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.NekoAssetsBindingNavigator.Size = New System.Drawing.Size(300, 25)
-        Me.NekoAssetsBindingNavigator.TabIndex = 2
-        Me.NekoAssetsBindingNavigator.Text = "BindingNavigator1"
-        Me.NekoAssetsBindingNavigator.Visible = False
+        Me.NekostashDataSet1.DataSetName = "NekostashDataSet"
+        Me.NekostashDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'BindingNavigatorMoveFirstItem
+        'NekostashDataSetBindingSource
         '
-        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
-        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveFirstItem.Text = "Move first"
-        '
-        'BindingNavigatorMovePreviousItem
-        '
-        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
-        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
-        '
-        'BindingNavigatorSeparator
-        '
-        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorPositionItem
-        '
-        Me.BindingNavigatorPositionItem.AccessibleName = "Position"
-        Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
-        Me.BindingNavigatorPositionItem.Text = "0"
-        Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
-        '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
-        'BindingNavigatorSeparator1
-        '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorMoveNextItem
-        '
-        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
-        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveNextItem.Text = "Move next"
-        '
-        'BindingNavigatorMoveLastItem
-        '
-        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
-        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveLastItem.Text = "Move last"
-        '
-        'BindingNavigatorSeparator2
-        '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
-        '
-        'NekoAssetsBindingNavigatorSaveItem
-        '
-        Me.NekoAssetsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.NekoAssetsBindingNavigatorSaveItem.Image = CType(resources.GetObject("NekoAssetsBindingNavigatorSaveItem.Image"), System.Drawing.Image)
-        Me.NekoAssetsBindingNavigatorSaveItem.Name = "NekoAssetsBindingNavigatorSaveItem"
-        Me.NekoAssetsBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
-        Me.NekoAssetsBindingNavigatorSaveItem.Text = "Save Data"
-        '
-        'NekoAssetsDataGridView
-        '
-        Me.NekoAssetsDataGridView.AllowUserToAddRows = False
-        Me.NekoAssetsDataGridView.AllowUserToDeleteRows = False
-        Me.NekoAssetsDataGridView.AutoGenerateColumns = False
-        Me.NekoAssetsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.NekoAssetsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10})
-        Me.NekoAssetsDataGridView.DataSource = Me.NekoAssetsBindingSource
-        Me.NekoAssetsDataGridView.Location = New System.Drawing.Point(231, 51)
-        Me.NekoAssetsDataGridView.Name = "NekoAssetsDataGridView"
-        Me.NekoAssetsDataGridView.ReadOnly = True
-        Me.NekoAssetsDataGridView.Size = New System.Drawing.Size(388, 328)
-        Me.NekoAssetsDataGridView.TabIndex = 5
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Date_Time"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Date_Time"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Serial"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Serial"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Status"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Status"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "PIC"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "PIC"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Case"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Case"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Memo"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Memo"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Registration_Type"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Registration_Type"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Signature"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Signature"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Accessory"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Accessory"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        '
-        'SerialLabel
-        '
-        SerialLabel.AutoSize = True
-        SerialLabel.Location = New System.Drawing.Point(20, 110)
-        SerialLabel.Name = "SerialLabel"
-        SerialLabel.Size = New System.Drawing.Size(36, 13)
-        SerialLabel.TabIndex = 6
-        SerialLabel.Text = "Serial:"
-        '
-        'SerialTextBox
-        '
-        Me.SerialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NekoAssetsBindingSource, "Serial", True))
-        Me.SerialTextBox.Location = New System.Drawing.Point(62, 107)
-        Me.SerialTextBox.Name = "SerialTextBox"
-        Me.SerialTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.SerialTextBox.TabIndex = 7
-        '
-        'StatusLabel
-        '
-        StatusLabel.AutoSize = True
-        StatusLabel.Location = New System.Drawing.Point(21, 150)
-        StatusLabel.Name = "StatusLabel"
-        StatusLabel.Size = New System.Drawing.Size(40, 13)
-        StatusLabel.TabIndex = 8
-        StatusLabel.Text = "Status:"
-        '
-        'StatusTextBox
-        '
-        Me.StatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NekoAssetsBindingSource, "Status", True))
-        Me.StatusTextBox.Location = New System.Drawing.Point(67, 147)
-        Me.StatusTextBox.Name = "StatusTextBox"
-        Me.StatusTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.StatusTextBox.TabIndex = 9
-        '
-        'PICLabel
-        '
-        PICLabel.AutoSize = True
-        PICLabel.Location = New System.Drawing.Point(18, 186)
-        PICLabel.Name = "PICLabel"
-        PICLabel.Size = New System.Drawing.Size(27, 13)
-        PICLabel.TabIndex = 10
-        PICLabel.Text = "PIC:"
-        '
-        'PICTextBox
-        '
-        Me.PICTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NekoAssetsBindingSource, "PIC", True))
-        Me.PICTextBox.Location = New System.Drawing.Point(51, 183)
-        Me.PICTextBox.Name = "PICTextBox"
-        Me.PICTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.PICTextBox.TabIndex = 11
-        '
-        'CaseLabel
-        '
-        CaseLabel.AutoSize = True
-        CaseLabel.Location = New System.Drawing.Point(17, 222)
-        CaseLabel.Name = "CaseLabel"
-        CaseLabel.Size = New System.Drawing.Size(34, 13)
-        CaseLabel.TabIndex = 12
-        CaseLabel.Text = "Case:"
-        '
-        'CaseTextBox
-        '
-        Me.CaseTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NekoAssetsBindingSource, "Case", True))
-        Me.CaseTextBox.Location = New System.Drawing.Point(57, 219)
-        Me.CaseTextBox.Name = "CaseTextBox"
-        Me.CaseTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.CaseTextBox.TabIndex = 13
-        '
-        'MemoLabel
-        '
-        MemoLabel.AutoSize = True
-        MemoLabel.Location = New System.Drawing.Point(18, 253)
-        MemoLabel.Name = "MemoLabel"
-        MemoLabel.Size = New System.Drawing.Size(39, 13)
-        MemoLabel.TabIndex = 14
-        MemoLabel.Text = "Memo:"
-        '
-        'MemoTextBox
-        '
-        Me.MemoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NekoAssetsBindingSource, "Memo", True))
-        Me.MemoTextBox.Location = New System.Drawing.Point(63, 250)
-        Me.MemoTextBox.Name = "MemoTextBox"
-        Me.MemoTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.MemoTextBox.TabIndex = 15
-        '
-        'Registration_TypeLabel
-        '
-        Registration_TypeLabel.AutoSize = True
-        Registration_TypeLabel.Location = New System.Drawing.Point(16, 291)
-        Registration_TypeLabel.Name = "Registration_TypeLabel"
-        Registration_TypeLabel.Size = New System.Drawing.Size(93, 13)
-        Registration_TypeLabel.TabIndex = 16
-        Registration_TypeLabel.Text = "Registration Type:"
-        '
-        'Registration_TypeTextBox
-        '
-        Me.Registration_TypeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NekoAssetsBindingSource, "Registration_Type", True))
-        Me.Registration_TypeTextBox.Location = New System.Drawing.Point(115, 288)
-        Me.Registration_TypeTextBox.Name = "Registration_TypeTextBox"
-        Me.Registration_TypeTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.Registration_TypeTextBox.TabIndex = 17
-        '
-        'SignatureLabel
-        '
-        SignatureLabel.AutoSize = True
-        SignatureLabel.Location = New System.Drawing.Point(16, 325)
-        SignatureLabel.Name = "SignatureLabel"
-        SignatureLabel.Size = New System.Drawing.Size(55, 13)
-        SignatureLabel.TabIndex = 18
-        SignatureLabel.Text = "Signature:"
-        '
-        'SignatureTextBox
-        '
-        Me.SignatureTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NekoAssetsBindingSource, "Signature", True))
-        Me.SignatureTextBox.Location = New System.Drawing.Point(77, 322)
-        Me.SignatureTextBox.Name = "SignatureTextBox"
-        Me.SignatureTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.SignatureTextBox.TabIndex = 19
-        '
-        'AccessoryLabel
-        '
-        AccessoryLabel.AutoSize = True
-        AccessoryLabel.Location = New System.Drawing.Point(15, 351)
-        AccessoryLabel.Name = "AccessoryLabel"
-        AccessoryLabel.Size = New System.Drawing.Size(59, 13)
-        AccessoryLabel.TabIndex = 20
-        AccessoryLabel.Text = "Accessory:"
-        '
-        'AccessoryTextBox
-        '
-        Me.AccessoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.NekoAssetsBindingSource, "Accessory", True))
-        Me.AccessoryTextBox.Location = New System.Drawing.Point(80, 348)
-        Me.AccessoryTextBox.Name = "AccessoryTextBox"
-        Me.AccessoryTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.AccessoryTextBox.TabIndex = 21
+        Me.NekostashDataSetBindingSource.DataSource = Me.NekostashDataSet
+        Me.NekostashDataSetBindingSource.Position = 0
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1050, 460)
-        Me.Controls.Add(Me.NekoAssetsBindingNavigator)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
         Me.Text = "NekoStash Inventory Manager"
@@ -860,19 +624,18 @@ Partial Class Form1
         Me.TabPage1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.grdProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NekoAssetsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NekoAssetsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NekoAssetsBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.NekoAssetsBindingNavigator.ResumeLayout(False)
-        Me.NekoAssetsBindingNavigator.PerformLayout()
-        CType(Me.NekoAssetsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NekostashDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NekostashDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TabControl1 As TabControl
@@ -913,36 +676,24 @@ Partial Class Form1
     Friend WithEvents NekoAssetsBindingSource As BindingSource
     Friend WithEvents NekoAssetsTableAdapter As NekostashDataSetTableAdapters.NekoAssetsTableAdapter
     Friend WithEvents TableAdapterManager As NekostashDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents NekoAssetsBindingNavigator As BindingNavigator
-    Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
-    Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
-    Friend WithEvents BindingNavigatorDeleteItem As ToolStripButton
-    Friend WithEvents BindingNavigatorMoveFirstItem As ToolStripButton
-    Friend WithEvents BindingNavigatorMovePreviousItem As ToolStripButton
-    Friend WithEvents BindingNavigatorSeparator As ToolStripSeparator
-    Friend WithEvents BindingNavigatorPositionItem As ToolStripTextBox
-    Friend WithEvents BindingNavigatorSeparator1 As ToolStripSeparator
-    Friend WithEvents BindingNavigatorMoveNextItem As ToolStripButton
-    Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
-    Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
-    Friend WithEvents NekoAssetsBindingNavigatorSaveItem As ToolStripButton
-    Friend WithEvents AccessoryTextBox As TextBox
-    Friend WithEvents SignatureTextBox As TextBox
-    Friend WithEvents Registration_TypeTextBox As TextBox
-    Friend WithEvents MemoTextBox As TextBox
-    Friend WithEvents CaseTextBox As TextBox
-    Friend WithEvents PICTextBox As TextBox
-    Friend WithEvents StatusTextBox As TextBox
-    Friend WithEvents SerialTextBox As TextBox
-    Friend WithEvents NekoAssetsDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents txtboxMemo As TextBox
+    Friend WithEvents txtboxAcc_list As TextBox
+    Friend WithEvents txtboxCase As TextBox
+    Friend WithEvents txtboxSignature As TextBox
+    Friend WithEvents txtboxSN As TextBox
+    Friend WithEvents txtboxPIC As TextBox
+    Friend WithEvents grdProperties As DataGridView
+    Friend WithEvents NekostashDataSet1 As NekostashDataSet
+    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SerialDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PICDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CaseDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MemoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents RegistrationTypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SignatureDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AccessoryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NekoAssetsBindingSource1 As BindingSource
+    Friend WithEvents NekostashDataSetBindingSource As BindingSource
 End Class

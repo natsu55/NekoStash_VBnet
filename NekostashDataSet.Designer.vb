@@ -285,8 +285,6 @@ Partial Public Class NekostashDataSet
         
         Private columnID As Global.System.Data.DataColumn
         
-        Private columnDate_Time As Global.System.Data.DataColumn
-        
         Private columnSerial As Global.System.Data.DataColumn
         
         Private columnStatus As Global.System.Data.DataColumn
@@ -343,14 +341,6 @@ Partial Public Class NekostashDataSet
         Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Date_TimeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDate_Time
             End Get
         End Property
         
@@ -455,9 +445,9 @@ Partial Public Class NekostashDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddNekoAssetsRow(ByVal Date_Time As Date, ByVal Serial As String, ByVal Status As String, ByVal PIC As String, ByVal _Case As String, ByVal Memo As String, ByVal Registration_Type As String, ByVal Signature As String, ByVal Accessory As String) As NekoAssetsRow
+        Public Overloads Function AddNekoAssetsRow(ByVal Serial As String, ByVal Status As String, ByVal PIC As String, ByVal _Case As String, ByVal Memo As String, ByVal Registration_Type As String, ByVal Signature As String, ByVal Accessory As String) As NekoAssetsRow
             Dim rowNekoAssetsRow As NekoAssetsRow = CType(Me.NewRow,NekoAssetsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Date_Time, Serial, Status, PIC, _Case, Memo, Registration_Type, Signature, Accessory}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Serial, Status, PIC, _Case, Memo, Registration_Type, Signature, Accessory}
             rowNekoAssetsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowNekoAssetsRow)
             Return rowNekoAssetsRow
@@ -487,7 +477,6 @@ Partial Public Class NekostashDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnID = MyBase.Columns("ID")
-            Me.columnDate_Time = MyBase.Columns("Date_Time")
             Me.columnSerial = MyBase.Columns("Serial")
             Me.columnStatus = MyBase.Columns("Status")
             Me.columnPIC = MyBase.Columns("PIC")
@@ -503,8 +492,6 @@ Partial Public Class NekostashDataSet
         Private Sub InitClass()
             Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID)
-            Me.columnDate_Time = New Global.System.Data.DataColumn("Date_Time", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDate_Time)
             Me.columnSerial = New Global.System.Data.DataColumn("Serial", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSerial)
             Me.columnStatus = New Global.System.Data.DataColumn("Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -695,21 +682,6 @@ Partial Public Class NekostashDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Date_Time() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableNekoAssets.Date_TimeColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Date_Time' in table 'NekoAssets' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableNekoAssets.Date_TimeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property Serial() As String
             Get
                 Try 
@@ -827,18 +799,6 @@ Partial Public Class NekostashDataSet
                 Me(Me.tableNekoAssets.AccessoryColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsDate_TimeNull() As Boolean
-            Return Me.IsNull(Me.tableNekoAssets.Date_TimeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetDate_TimeNull()
-            Me(Me.tableNekoAssets.Date_TimeColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -1104,7 +1064,6 @@ Namespace NekostashDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "NekoAssets"
             tableMapping.ColumnMappings.Add("ID", "ID")
-            tableMapping.ColumnMappings.Add("Date_Time", "Date_Time")
             tableMapping.ColumnMappings.Add("Serial", "Serial")
             tableMapping.ColumnMappings.Add("Status", "Status")
             tableMapping.ColumnMappings.Add("PIC", "PIC")
@@ -1116,16 +1075,13 @@ Namespace NekostashDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `NekoAssets` WHERE ((`ID` = ?) AND ((? = 1 AND `Date_Time` IS NULL) O"& _ 
-                "R (`Date_Time` = ?)) AND ((? = 1 AND `Serial` IS NULL) OR (`Serial` = ?)) AND (("& _ 
-                "? = 1 AND `Status` IS NULL) OR (`Status` = ?)) AND ((? = 1 AND `PIC` IS NULL) OR"& _ 
-                " (`PIC` = ?)) AND ((? = 1 AND `Case` IS NULL) OR (`Case` = ?)) AND ((? = 1 AND `"& _ 
-                "Registration_Type` IS NULL) OR (`Registration_Type` = ?)) AND ((? = 1 AND `Signa"& _ 
-                "ture` IS NULL) OR (`Signature` = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `NekoAssets` WHERE ((`ID` = ?) AND ((? = 1 AND `Serial` IS NULL) OR ("& _ 
+                "`Serial` = ?)) AND ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)) AND ((? = 1 "& _ 
+                "AND `PIC` IS NULL) OR (`PIC` = ?)) AND ((? = 1 AND `Case` IS NULL) OR (`Case` = "& _ 
+                "?)) AND ((? = 1 AND `Registration_Type` IS NULL) OR (`Registration_Type` = ?)) A"& _ 
+                "ND ((? = 1 AND `Signature` IS NULL) OR (`Signature` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Date_Time", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Date_Time", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Date_Time", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Date_Time", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Serial", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Serial", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Serial", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Serial", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Status", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -1140,11 +1096,9 @@ Namespace NekostashDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Signature", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Signature", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `NekoAssets` (`Date_Time`, `Serial`, `Status`, `PIC`, `Case`, `Memo`,"& _ 
-                " `Registration_Type`, `Signature`, `Accessory`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, "& _ 
-                "?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `NekoAssets` (`Serial`, `Status`, `PIC`, `Case`, `Memo`, `Registratio"& _ 
+                "n_Type`, `Signature`, `Accessory`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Date_Time", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Date_Time", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Serial", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Serial", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Status", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PIC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PIC", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -1155,16 +1109,14 @@ Namespace NekostashDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Accessory", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Accessory", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `NekoAssets` SET `Date_Time` = ?, `Serial` = ?, `Status` = ?, `PIC` = ?, `"& _ 
-                "Case` = ?, `Memo` = ?, `Registration_Type` = ?, `Signature` = ?, `Accessory` = ?"& _ 
-                " WHERE ((`ID` = ?) AND ((? = 1 AND `Date_Time` IS NULL) OR (`Date_Time` = ?)) AN"& _ 
-                "D ((? = 1 AND `Serial` IS NULL) OR (`Serial` = ?)) AND ((? = 1 AND `Status` IS N"& _ 
-                "ULL) OR (`Status` = ?)) AND ((? = 1 AND `PIC` IS NULL) OR (`PIC` = ?)) AND ((? ="& _ 
-                " 1 AND `Case` IS NULL) OR (`Case` = ?)) AND ((? = 1 AND `Registration_Type` IS N"& _ 
-                "ULL) OR (`Registration_Type` = ?)) AND ((? = 1 AND `Signature` IS NULL) OR (`Sig"& _ 
-                "nature` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `NekoAssets` SET `Serial` = ?, `Status` = ?, `PIC` = ?, `Case` = ?, `Memo`"& _ 
+                " = ?, `Registration_Type` = ?, `Signature` = ?, `Accessory` = ? WHERE ((`ID` = ?"& _ 
+                ") AND ((? = 1 AND `Serial` IS NULL) OR (`Serial` = ?)) AND ((? = 1 AND `Status` "& _ 
+                "IS NULL) OR (`Status` = ?)) AND ((? = 1 AND `PIC` IS NULL) OR (`PIC` = ?)) AND ("& _ 
+                "(? = 1 AND `Case` IS NULL) OR (`Case` = ?)) AND ((? = 1 AND `Registration_Type` "& _ 
+                "IS NULL) OR (`Registration_Type` = ?)) AND ((? = 1 AND `Signature` IS NULL) OR ("& _ 
+                "`Signature` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Date_Time", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Date_Time", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Serial", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Serial", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Status", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PIC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PIC", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -1174,8 +1126,6 @@ Namespace NekostashDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Signature", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Signature", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Accessory", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Accessory", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Date_Time", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Date_Time", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Date_Time", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Date_Time", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Serial", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Serial", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Serial", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Serial", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Status", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Status", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -1203,8 +1153,8 @@ Namespace NekostashDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, Date_Time, Serial, Status, PIC, [Case], [Memo], Registration_Type, Sig"& _ 
-                "nature, Accessory FROM NekoAssets"
+            Me._commandCollection(0).CommandText = "SELECT ID, Serial, Status, PIC, [Case], [Memo], Registration_Type, Signature, Acc"& _ 
+                "essory FROM NekoAssets"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1264,56 +1214,49 @@ Namespace NekostashDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Date_Time As Global.System.Nullable(Of Date), ByVal Original_Serial As String, ByVal Original_Status As String, ByVal Original_PIC As String, ByVal Original_Case As String, ByVal Original_Registration_Type As String, ByVal Original_Signature As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Serial As String, ByVal Original_Status As String, ByVal Original_PIC As String, ByVal Original_Case As String, ByVal Original_Registration_Type As String, ByVal Original_Signature As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
-            If (Original_Date_Time.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Date_Time.Value,Date)
-            Else
+            If (Original_Serial Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Serial,String)
             End If
-            If (Original_Serial Is Nothing) Then
+            If (Original_Status Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Serial,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Status,String)
             End If
-            If (Original_Status Is Nothing) Then
+            If (Original_PIC Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Status,String)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_PIC,String)
             End If
-            If (Original_PIC Is Nothing) Then
+            If (Original_Case Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_PIC,String)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Case,String)
             End If
-            If (Original_Case Is Nothing) Then
+            If (Original_Registration_Type Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Case,String)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Registration_Type,String)
             End If
-            If (Original_Registration_Type Is Nothing) Then
+            If (Original_Signature Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Registration_Type,String)
-            End If
-            If (Original_Signature Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Signature,String)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Signature,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1334,51 +1277,46 @@ Namespace NekostashDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Date_Time As Global.System.Nullable(Of Date), ByVal Serial As String, ByVal Status As String, ByVal PIC As String, ByVal _Case As String, ByVal Memo As String, ByVal Registration_Type As String, ByVal Signature As String, ByVal Accessory As String) As Integer
-            If (Date_Time.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Date_Time.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
+        Public Overloads Overridable Function Insert(ByVal Serial As String, ByVal Status As String, ByVal PIC As String, ByVal _Case As String, ByVal Memo As String, ByVal Registration_Type As String, ByVal Signature As String, ByVal Accessory As String) As Integer
             If (Serial Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Serial,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Serial,String)
             End If
             If (Status Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Status,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Status,String)
             End If
             If (PIC Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(PIC,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(PIC,String)
             End If
             If (_Case Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(_Case,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(_Case,String)
             End If
             If (Memo Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Memo,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Memo,String)
             End If
             If (Registration_Type Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Registration_Type,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Registration_Type,String)
             End If
             If (Signature Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Signature,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Signature,String)
             End If
             If (Accessory Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Accessory,String)
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Accessory,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1399,118 +1337,89 @@ Namespace NekostashDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Date_Time As Global.System.Nullable(Of Date),  _
-                    ByVal Serial As String,  _
-                    ByVal Status As String,  _
-                    ByVal PIC As String,  _
-                    ByVal _Case As String,  _
-                    ByVal Memo As String,  _
-                    ByVal Registration_Type As String,  _
-                    ByVal Signature As String,  _
-                    ByVal Accessory As String,  _
-                    ByVal Original_ID As Integer,  _
-                    ByVal Original_Date_Time As Global.System.Nullable(Of Date),  _
-                    ByVal Original_Serial As String,  _
-                    ByVal Original_Status As String,  _
-                    ByVal Original_PIC As String,  _
-                    ByVal Original_Case As String,  _
-                    ByVal Original_Registration_Type As String,  _
-                    ByVal Original_Signature As String) As Integer
-            If (Date_Time.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Date_Time.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
+        Public Overloads Overridable Function Update(ByVal Serial As String, ByVal Status As String, ByVal PIC As String, ByVal _Case As String, ByVal Memo As String, ByVal Registration_Type As String, ByVal Signature As String, ByVal Accessory As String, ByVal Original_ID As Integer, ByVal Original_Serial As String, ByVal Original_Status As String, ByVal Original_PIC As String, ByVal Original_Case As String, ByVal Original_Registration_Type As String, ByVal Original_Signature As String) As Integer
             If (Serial Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Serial,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Serial,String)
             End If
             If (Status Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Status,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Status,String)
             End If
             If (PIC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(PIC,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(PIC,String)
             End If
             If (_Case Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(_Case,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(_Case,String)
             End If
             If (Memo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Memo,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Memo,String)
             End If
             If (Registration_Type Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Registration_Type,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Registration_Type,String)
             End If
             If (Signature Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Signature,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Signature,String)
             End If
             If (Accessory Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Accessory,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Accessory,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_ID,Integer)
-            If (Original_Date_Time.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Date_Time.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ID,Integer)
             If (Original_Serial Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Serial,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Serial,String)
             End If
             If (Original_Status Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Status,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Status,String)
             End If
             If (Original_PIC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_PIC,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_PIC,String)
             End If
             If (Original_Case Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Case,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Case,String)
             End If
             If (Original_Registration_Type Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Registration_Type,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Registration_Type,String)
             End If
             If (Original_Signature Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Signature,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Signature,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
