@@ -23,13 +23,13 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lblSearchNote = New System.Windows.Forms.Label()
         Me.datagridSearch = New System.Windows.Forms.DataGridView()
-        Me.NekoAssetsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.NekostashDataSet = New NekoStash_VBnet.NekostashDataSet()
         Me.txtboxSearch = New System.Windows.Forms.TextBox()
         Me.Label_SearchValue = New System.Windows.Forms.Label()
         Me.cboxSearch = New System.Windows.Forms.ComboBox()
@@ -65,24 +65,38 @@ Partial Class Form1
         Me.rbtnOut = New System.Windows.Forms.RadioButton()
         Me.rbtnIn = New System.Windows.Forms.RadioButton()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.NekoAssetsDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NekoAssetsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.NekostashDataSet = New NekoStash_VBnet.NekostashDataSet()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.NekoAssetsTableAdapter = New NekoStash_VBnet.NekostashDataSetTableAdapters.NekoAssetsTableAdapter()
         Me.TableAdapterManager = New NekoStash_VBnet.NekostashDataSetTableAdapters.TableAdapterManager()
-        Me.NekostashDataSet1 = New NekoStash_VBnet.NekostashDataSet()
         Me.NekostashDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.lblSearchNote = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datagridSearch, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NekoAssetsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        CType(Me.NekoAssetsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NekoAssetsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NekostashDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NekostashDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -94,7 +108,7 @@ Partial Class Form1
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1026, 440)
+        Me.TabControl1.Size = New System.Drawing.Size(1147, 440)
         Me.TabControl1.TabIndex = 1
         '
         'TabPage1
@@ -109,7 +123,7 @@ Partial Class Form1
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1018, 414)
+        Me.TabPage1.Size = New System.Drawing.Size(1139, 414)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "IN/OUT"
         '
@@ -123,43 +137,54 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.Label_Search)
         Me.GroupBox2.Location = New System.Drawing.Point(390, 9)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(610, 385)
+        Me.GroupBox2.Size = New System.Drawing.Size(743, 385)
         Me.GroupBox2.TabIndex = 30
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Asset Search"
+        '
+        'lblSearchNote
+        '
+        Me.lblSearchNote.AutoSize = True
+        Me.lblSearchNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.lblSearchNote.Location = New System.Drawing.Point(372, 19)
+        Me.lblSearchNote.Name = "lblSearchNote"
+        Me.lblSearchNote.Size = New System.Drawing.Size(214, 15)
+        Me.lblSearchNote.TabIndex = 23
+        Me.lblSearchNote.Text = "Change in Value => Auto Update"
         '
         'datagridSearch
         '
         Me.datagridSearch.AllowUserToAddRows = False
         Me.datagridSearch.AllowUserToDeleteRows = False
+        Me.datagridSearch.AllowUserToOrderColumns = True
+        Me.datagridSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
+        Me.datagridSearch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.datagridSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datagridSearch.DefaultCellStyle = DataGridViewCellStyle1
         Me.datagridSearch.Location = New System.Drawing.Point(8, 56)
         Me.datagridSearch.Name = "datagridSearch"
         Me.datagridSearch.ReadOnly = True
-        Me.datagridSearch.Size = New System.Drawing.Size(596, 315)
+        Me.datagridSearch.Size = New System.Drawing.Size(729, 315)
         Me.datagridSearch.TabIndex = 22
-        '
-        'NekoAssetsBindingSource1
-        '
-        Me.NekoAssetsBindingSource1.DataMember = "NekoAssets"
-        Me.NekoAssetsBindingSource1.DataSource = Me.NekostashDataSet
-        '
-        'NekostashDataSet
-        '
-        Me.NekostashDataSet.DataSetName = "NekostashDataSet"
-        Me.NekostashDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtboxSearch
         '
-        Me.txtboxSearch.Location = New System.Drawing.Point(223, 17)
+        Me.txtboxSearch.Location = New System.Drawing.Point(237, 17)
         Me.txtboxSearch.Name = "txtboxSearch"
-        Me.txtboxSearch.Size = New System.Drawing.Size(138, 20)
+        Me.txtboxSearch.Size = New System.Drawing.Size(129, 20)
         Me.txtboxSearch.TabIndex = 4
         '
         'Label_SearchValue
         '
         Me.Label_SearchValue.AutoSize = True
-        Me.Label_SearchValue.Location = New System.Drawing.Point(158, 20)
+        Me.Label_SearchValue.Location = New System.Drawing.Point(172, 20)
         Me.Label_SearchValue.Name = "Label_SearchValue"
         Me.Label_SearchValue.Size = New System.Drawing.Size(64, 13)
         Me.Label_SearchValue.TabIndex = 3
@@ -484,12 +509,139 @@ Partial Class Form1
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage2.Controls.Add(Me.Label9)
+        Me.TabPage2.Controls.Add(Me.TextBox1)
+        Me.TabPage2.Controls.Add(Me.Label10)
+        Me.TabPage2.Controls.Add(Me.ComboBox1)
+        Me.TabPage2.Controls.Add(Me.Label11)
+        Me.TabPage2.Controls.Add(Me.NekoAssetsDataGridView)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(1018, 414)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "DB Admin"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label9.Location = New System.Drawing.Point(370, 8)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(214, 15)
+        Me.Label9.TabIndex = 28
+        Me.Label9.Text = "Change in Value => Auto Update"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(224, 6)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(138, 20)
+        Me.TextBox1.TabIndex = 27
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(159, 9)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(64, 13)
+        Me.Label10.TabIndex = 26
+        Me.Label10.Text = "Input Value:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.AutoCompleteCustomSource.AddRange(New String() {"Serial", "PIC", "Signature", "Memo"})
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Serial", "PIC", "Signature", "Memo"})
+        Me.ComboBox1.Location = New System.Drawing.Point(70, 6)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(79, 21)
+        Me.ComboBox1.TabIndex = 25
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(8, 9)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(59, 13)
+        Me.Label11.TabIndex = 24
+        Me.Label11.Text = "Search for:"
+        '
+        'NekoAssetsDataGridView
+        '
+        Me.NekoAssetsDataGridView.AutoGenerateColumns = False
+        Me.NekoAssetsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.NekoAssetsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10})
+        Me.NekoAssetsDataGridView.DataSource = Me.NekoAssetsBindingSource
+        Me.NekoAssetsDataGridView.Location = New System.Drawing.Point(6, 33)
+        Me.NekoAssetsDataGridView.Name = "NekoAssetsDataGridView"
+        Me.NekoAssetsDataGridView.Size = New System.Drawing.Size(944, 375)
+        Me.NekoAssetsDataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Serial"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Serial"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Status"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Status"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "PIC"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "PIC"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Case"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Case"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Memo"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Memo"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Registration_Type"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Registration_Type"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Signature"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Signature"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Accessory"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Accessory"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'NekoAssetsBindingSource
+        '
+        Me.NekoAssetsBindingSource.DataMember = "NekoAssets"
+        Me.NekoAssetsBindingSource.DataSource = Me.NekostashDataSet
+        '
+        'NekostashDataSet
+        '
+        Me.NekostashDataSet.DataSetName = "NekostashDataSet"
+        Me.NekostashDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TabPage3
         '
@@ -501,11 +653,6 @@ Partial Class Form1
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "AUDIT"
         '
-        'NekoAssetsBindingSource
-        '
-        Me.NekoAssetsBindingSource.DataMember = "NekoAssets"
-        Me.NekoAssetsBindingSource.DataSource = Me.NekostashDataSet
-        '
         'NekoAssetsTableAdapter
         '
         Me.NekoAssetsTableAdapter.ClearBeforeFill = True
@@ -516,31 +663,16 @@ Partial Class Form1
         Me.TableAdapterManager.NekoAssetsTableAdapter = Me.NekoAssetsTableAdapter
         Me.TableAdapterManager.UpdateOrder = NekoStash_VBnet.NekostashDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'NekostashDataSet1
-        '
-        Me.NekostashDataSet1.DataSetName = "NekostashDataSet"
-        Me.NekostashDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'NekostashDataSetBindingSource
         '
         Me.NekostashDataSetBindingSource.DataSource = Me.NekostashDataSet
         Me.NekostashDataSetBindingSource.Position = 0
         '
-        'lblSearchNote
-        '
-        Me.lblSearchNote.AutoSize = True
-        Me.lblSearchNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblSearchNote.Location = New System.Drawing.Point(369, 19)
-        Me.lblSearchNote.Name = "lblSearchNote"
-        Me.lblSearchNote.Size = New System.Drawing.Size(214, 15)
-        Me.lblSearchNote.TabIndex = 23
-        Me.lblSearchNote.Text = "Change in Value => Auto Update"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1050, 460)
+        Me.ClientSize = New System.Drawing.Size(1171, 460)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
@@ -551,15 +683,16 @@ Partial Class Form1
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.datagridSearch, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NekoAssetsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        CType(Me.NekoAssetsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NekoAssetsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NekostashDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NekostashDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -609,8 +742,21 @@ Partial Class Form1
     Friend WithEvents txtboxSN As TextBox
     Friend WithEvents txtboxPIC As TextBox
     Friend WithEvents datagridSearch As DataGridView
-    Friend WithEvents NekostashDataSet1 As NekostashDataSet
-    Friend WithEvents NekoAssetsBindingSource1 As BindingSource
     Friend WithEvents NekostashDataSetBindingSource As BindingSource
     Friend WithEvents lblSearchNote As Label
+    Friend WithEvents NekoAssetsDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents Label9 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label11 As Label
 End Class

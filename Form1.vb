@@ -141,10 +141,8 @@ Public Class Form1
             'Code to to push changes to DB
             Me.Validate()
             Me.NekoAssetsBindingSource.EndEdit()
-            Me.NekoAssetsBindingSource1.EndEdit()
             Me.TableAdapterManager.UpdateAll(Me.NekostashDataSet)
             Me.NekoAssetsTableAdapter.Update(Me.NekostashDataSet.NekoAssets)
-            Me.NekoAssetsTableAdapter.Update(Me.NekostashDataSet1.NekoAssets)
         Catch ex As Exception
             MsgBox("Error occured. Please try again.")
         End Try
@@ -195,5 +193,16 @@ Public Class Form1
             con.Close() 'end connection 
         End If
 
+    End Sub
+
+    Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+        If TabControl1.SelectedIndex = 1 Then
+            Me.Hide()
+            Login_Form.Show()
+        End If
+    End Sub
+
+    Private Sub btnShowall_Click(sender As Object, e As EventArgs)
+        Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
     End Sub
 End Class
