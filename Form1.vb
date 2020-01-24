@@ -2,36 +2,26 @@
 Public Class Form1
     Dim RegistrationType As String
     Dim StorageStatus As String
-    '-----DB Variables
+    Dim x As Integer = 0 'counter for list index
+    Dim accesoryList As New List(Of String)
+    '-----DB Connection
+    Dim con As New OleDbConnection
     Dim dbConnection As OleDbConnection
     Dim dbCommand As OleDbCommand
     Dim dbDataAdapter As OleDbDataAdapter
     Dim ConnectString As String = "Provider = Microsoft.Jet.OLEDB.4.0;" & "Data Source = Nekostash.mdb" 'This only work went DB file is inside /bin/debug folder
     Dim dtNekostash As DataTable
+    '-----DB Connection
+
     '-----DB Variables
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         'TODO: This line of code loads data into the 'NekostashDataSet.NekoAssets' table. You can move, or remove it, as needed.
-        Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
-        'NekoAssetsBindingSource.AddNew()
-    End Sub
-
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        txtboxPIC.Clear()
-        txtboxCase.Clear()
-        txtboxSN.Clear()
-        txtboxMemo.Clear()
-        txtboxSignature.Clear()
-        txtboxAcc_list.Clear()
-        cboxAcc.Text = "Select Item(s)"
-    End Sub
-
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles btnAddAccessory.Click
-        Dim unused = cboxAcc.Text
-        txtboxAcc_list.AppendText(cboxAcc.Text + vbNewLine)
-
+        con.ConnectionString = "provider=microsoft.jet.oledb.4.0;data source= ..\Debug\Nekostash.mdb"
+        'Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
     End Sub
 
     Private Sub rbtnIn_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnIn.CheckedChanged
+        'Updates Registration Type Label
         If rbtnIn.Checked Then
             StorageStatus = "in"
             btnEOL.Text = "Refresh PC (EOL) Return"
@@ -49,7 +39,7 @@ Public Class Form1
         End If
     End Sub
 
-    '=============Update Registration type label 
+    '==========Updates Registration Type label for everytime a registration button selected
     Private Sub btnEOL_Click(sender As Object, e As EventArgs) Handles btnEOL.Click
         Select Case True
             Case Me.rbtnIn.Checked
@@ -98,24 +88,29 @@ Public Class Form1
     Private Sub btnOther_Click(sender As Object, e As EventArgs) Handles btnOther.Click
         Form_Others.Show()
     End Sub
-    '=============Update Registration type label 
-    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+    '==========Updates Registration Type label for everytime a registration button selected 
 
-        Me.NekoAssetsTableAdapter.Insert(Me.txtboxSN.Text, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.btnEOL.Text, Me.txtboxSignature.Text, Me.txtboxAcc_list.Text)
-        Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles btnAddAccessory.Click
+        'Add accessory list
+        Dim unused = cboxAcc.Text
+        accesoryList.Insert(x, cboxAcc.Text)
+        x += 1
+        txtboxAcc_list.AppendText(cboxAcc.Text & "," + vbNewLine)
+    End Sub
+    '=====================TEST
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        Dim emptyTextBoxes =
+            From txtbox In Me.Controls.OfType(Of TextBox)()
+            Where txtbox.Text.Length = 0
+            Select txtbox.Name
+        If emptyTextBoxes.Any Then
+            MessageBox.Show(String.Format("Please fill following textboxes: {0}",
+                    String.Join(",", emptyTextBoxes)))
+        End If
+    End Sub
 
-        '====Code to to push changes to DB
-        Me.Validate()
-        Me.NekoAssetsBindingSource.EndEdit()
-        Me.NekoAssetsBindingSource1.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.NekostashDataSet)
-        Me.NekoAssetsTableAdapter.Update(Me.NekostashDataSet.NekoAssets)
-        Me.NekoAssetsTableAdapter.Update(Me.NekostashDataSet1.NekoAssets)
-        '====Code to to push changes to DB
-
-        MsgBox("DB Updated Successfully")
-
-        'Clears entered data
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        'CLEAR ALL Button
         txtboxPIC.Clear()
         txtboxCase.Clear()
         txtboxSN.Clear()
@@ -123,13 +118,82 @@ Public Class Form1
         txtboxSignature.Clear()
         txtboxAcc_list.Clear()
         cboxAcc.Text = "Select Item(s)"
-
+        accesoryList.Clear()
     End Sub
 
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+    '=====SUBMIT BUTTON
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        'NOT YET IMPLEMENTED - To check empty textboxes
+        Dim emptyTextBoxes =
+            From txtbox In Me.Controls.OfType(Of TextBox)()
+            Where txtbox.Text.Length = 0
+            Select txtbox.Name
+        If emptyTextBoxes.Any Then
+            MessageBox.Show(String.Format("Please fill following textboxes: {0}",
+                    String.Join(",", emptyTextBoxes)))
+        End If
+
+        Try
+            'Submit Button
+            Me.NekoAssetsTableAdapter.Insert(Me.txtboxSN.Text, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.btnEOL.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
+            Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
+
+            'Code to to push changes to DB
+            Me.Validate()
+            Me.NekoAssetsBindingSource.EndEdit()
+            Me.NekoAssetsBindingSource1.EndEdit()
+            Me.TableAdapterManager.UpdateAll(Me.NekostashDataSet)
+            Me.NekoAssetsTableAdapter.Update(Me.NekostashDataSet.NekoAssets)
+            Me.NekoAssetsTableAdapter.Update(Me.NekostashDataSet1.NekoAssets)
+        Catch ex As Exception
+            MsgBox("Error occured. Please try again.")
+        End Try
+        MsgBox("DB Updated Successfully")
+
+        'Clear entered data
+        txtboxPIC.Clear()
+        txtboxCase.Clear()
+        txtboxSN.Clear()
+        txtboxMemo.Clear()
+        txtboxSignature.Clear()
+        txtboxAcc_list.Clear()
+        cboxAcc.Text = "Select Item(s)"
+        accesoryList.Clear()
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs)
         'Filter Search
-        Me.NekoAssetsBindingSource.Filter = cboxSearch.Text & " = '" & Me.txtboxSearch.Text & " ' "
+        'Me.NekoAssetsBindingSource.Filter = cboxSearch.Text & " = '" & Me.txtboxSearch.Text & " ' "
+        Dim SQL As String
+
+        SQL = "SELECT NekoAssets.ID, NekoAssets.Serial,NekoAssets.Memo,NekoAssets.Date_Time " _
+            & "FROM NekoAssets " _
+            & "WHERE Serial LIKE '*" & Me.txtboxSearch.Text & "*' " _
+            & " OR Memo LIKE '*" & Me.txtboxSearch.Text & "*' " _
+            & "ORDER BY NekoAssets.Date_Time "
+        'Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
+        'Me.NekoAssetsTableAdapter.Fill(SQL)
+
     End Sub
 
+    Private Sub txtboxSearch_TextChanged(sender As Object, e As EventArgs) Handles txtboxSearch.TextChanged
+        If cboxSearch.Text = "" Then
+            MsgBox("Please select what to 'search for' then input desired value.")
+        Else
+            con.Open() 'connect to DB
+            Dim dt As New DataTable
+            Dim ds As New DataSet
+            ds.Tables.Add(dt)
+            Dim da As New OleDbDataAdapter
 
+            'Search Filter
+            da = New OleDbDataAdapter("Select * from NekoAssets where " & cboxSearch.Text & " like '%" & txtboxSearch.Text & "%'", con)
+            'Load Data
+            da.Fill(dt)
+            'Display search result
+            datagridSearch.DataSource = dt.DefaultView
+            con.Close() 'end connection 
+        End If
+
+    End Sub
 End Class

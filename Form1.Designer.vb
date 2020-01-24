@@ -27,19 +27,9 @@ Partial Class Form1
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.grdProperties = New System.Windows.Forms.DataGridView()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SerialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PICDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CaseDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MemoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RegistrationTypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SignatureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AccessoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.datagridSearch = New System.Windows.Forms.DataGridView()
         Me.NekoAssetsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.NekostashDataSet = New NekoStash_VBnet.NekostashDataSet()
-        Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtboxSearch = New System.Windows.Forms.TextBox()
         Me.Label_SearchValue = New System.Windows.Forms.Label()
         Me.cboxSearch = New System.Windows.Forms.ComboBox()
@@ -81,10 +71,11 @@ Partial Class Form1
         Me.TableAdapterManager = New NekoStash_VBnet.NekostashDataSetTableAdapters.TableAdapterManager()
         Me.NekostashDataSet1 = New NekoStash_VBnet.NekostashDataSet()
         Me.NekostashDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.lblSearchNote = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.grdProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.datagridSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NekoAssetsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -124,8 +115,8 @@ Partial Class Form1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.grdProperties)
-        Me.GroupBox2.Controls.Add(Me.btnSearch)
+        Me.GroupBox2.Controls.Add(Me.lblSearchNote)
+        Me.GroupBox2.Controls.Add(Me.datagridSearch)
         Me.GroupBox2.Controls.Add(Me.txtboxSearch)
         Me.GroupBox2.Controls.Add(Me.Label_SearchValue)
         Me.GroupBox2.Controls.Add(Me.cboxSearch)
@@ -137,82 +128,16 @@ Partial Class Form1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Asset Search"
         '
-        'grdProperties
+        'datagridSearch
         '
-        Me.grdProperties.AllowUserToAddRows = False
-        Me.grdProperties.AllowUserToDeleteRows = False
-        Me.grdProperties.AutoGenerateColumns = False
-        Me.grdProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdProperties.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.SerialDataGridViewTextBoxColumn, Me.StatusDataGridViewTextBoxColumn, Me.PICDataGridViewTextBoxColumn, Me.CaseDataGridViewTextBoxColumn, Me.MemoDataGridViewTextBoxColumn, Me.RegistrationTypeDataGridViewTextBoxColumn, Me.SignatureDataGridViewTextBoxColumn, Me.AccessoryDataGridViewTextBoxColumn})
-        Me.grdProperties.DataSource = Me.NekoAssetsBindingSource1
-        Me.grdProperties.Location = New System.Drawing.Point(8, 56)
-        Me.grdProperties.Name = "grdProperties"
-        Me.grdProperties.ReadOnly = True
-        Me.grdProperties.Size = New System.Drawing.Size(596, 315)
-        Me.grdProperties.TabIndex = 22
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'SerialDataGridViewTextBoxColumn
-        '
-        Me.SerialDataGridViewTextBoxColumn.DataPropertyName = "Serial"
-        Me.SerialDataGridViewTextBoxColumn.HeaderText = "Serial"
-        Me.SerialDataGridViewTextBoxColumn.Name = "SerialDataGridViewTextBoxColumn"
-        Me.SerialDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'StatusDataGridViewTextBoxColumn
-        '
-        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
-        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
-        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
-        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'PICDataGridViewTextBoxColumn
-        '
-        Me.PICDataGridViewTextBoxColumn.DataPropertyName = "PIC"
-        Me.PICDataGridViewTextBoxColumn.HeaderText = "PIC"
-        Me.PICDataGridViewTextBoxColumn.Name = "PICDataGridViewTextBoxColumn"
-        Me.PICDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CaseDataGridViewTextBoxColumn
-        '
-        Me.CaseDataGridViewTextBoxColumn.DataPropertyName = "Case"
-        Me.CaseDataGridViewTextBoxColumn.HeaderText = "Case"
-        Me.CaseDataGridViewTextBoxColumn.Name = "CaseDataGridViewTextBoxColumn"
-        Me.CaseDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'MemoDataGridViewTextBoxColumn
-        '
-        Me.MemoDataGridViewTextBoxColumn.DataPropertyName = "Memo"
-        Me.MemoDataGridViewTextBoxColumn.HeaderText = "Memo"
-        Me.MemoDataGridViewTextBoxColumn.Name = "MemoDataGridViewTextBoxColumn"
-        Me.MemoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RegistrationTypeDataGridViewTextBoxColumn
-        '
-        Me.RegistrationTypeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Type"
-        Me.RegistrationTypeDataGridViewTextBoxColumn.HeaderText = "Registration_Type"
-        Me.RegistrationTypeDataGridViewTextBoxColumn.Name = "RegistrationTypeDataGridViewTextBoxColumn"
-        Me.RegistrationTypeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'SignatureDataGridViewTextBoxColumn
-        '
-        Me.SignatureDataGridViewTextBoxColumn.DataPropertyName = "Signature"
-        Me.SignatureDataGridViewTextBoxColumn.HeaderText = "Signature"
-        Me.SignatureDataGridViewTextBoxColumn.Name = "SignatureDataGridViewTextBoxColumn"
-        Me.SignatureDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AccessoryDataGridViewTextBoxColumn
-        '
-        Me.AccessoryDataGridViewTextBoxColumn.DataPropertyName = "Accessory"
-        Me.AccessoryDataGridViewTextBoxColumn.HeaderText = "Accessory"
-        Me.AccessoryDataGridViewTextBoxColumn.Name = "AccessoryDataGridViewTextBoxColumn"
-        Me.AccessoryDataGridViewTextBoxColumn.ReadOnly = True
+        Me.datagridSearch.AllowUserToAddRows = False
+        Me.datagridSearch.AllowUserToDeleteRows = False
+        Me.datagridSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.datagridSearch.Location = New System.Drawing.Point(8, 56)
+        Me.datagridSearch.Name = "datagridSearch"
+        Me.datagridSearch.ReadOnly = True
+        Me.datagridSearch.Size = New System.Drawing.Size(596, 315)
+        Me.datagridSearch.TabIndex = 22
         '
         'NekoAssetsBindingSource1
         '
@@ -224,27 +149,17 @@ Partial Class Form1
         Me.NekostashDataSet.DataSetName = "NekostashDataSet"
         Me.NekostashDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'btnSearch
-        '
-        Me.btnSearch.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.btnSearch.Location = New System.Drawing.Point(413, 16)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(75, 23)
-        Me.btnSearch.TabIndex = 5
-        Me.btnSearch.Text = "Search"
-        Me.btnSearch.UseVisualStyleBackColor = False
-        '
         'txtboxSearch
         '
-        Me.txtboxSearch.Location = New System.Drawing.Point(231, 17)
+        Me.txtboxSearch.Location = New System.Drawing.Point(223, 17)
         Me.txtboxSearch.Name = "txtboxSearch"
-        Me.txtboxSearch.Size = New System.Drawing.Size(173, 20)
+        Me.txtboxSearch.Size = New System.Drawing.Size(138, 20)
         Me.txtboxSearch.TabIndex = 4
         '
         'Label_SearchValue
         '
         Me.Label_SearchValue.AutoSize = True
-        Me.Label_SearchValue.Location = New System.Drawing.Point(166, 20)
+        Me.Label_SearchValue.Location = New System.Drawing.Point(158, 20)
         Me.Label_SearchValue.Name = "Label_SearchValue"
         Me.Label_SearchValue.Size = New System.Drawing.Size(64, 13)
         Me.Label_SearchValue.TabIndex = 3
@@ -445,7 +360,7 @@ Partial Class Form1
         Me.cboxAcc.Name = "cboxAcc"
         Me.cboxAcc.Size = New System.Drawing.Size(121, 21)
         Me.cboxAcc.TabIndex = 23
-        Me.cboxAcc.Text = "Select item"
+        Me.cboxAcc.Text = "Select item(s)"
         '
         'Label6
         '
@@ -611,12 +526,23 @@ Partial Class Form1
         Me.NekostashDataSetBindingSource.DataSource = Me.NekostashDataSet
         Me.NekostashDataSetBindingSource.Position = 0
         '
+        'lblSearchNote
+        '
+        Me.lblSearchNote.AutoSize = True
+        Me.lblSearchNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.lblSearchNote.Location = New System.Drawing.Point(369, 19)
+        Me.lblSearchNote.Name = "lblSearchNote"
+        Me.lblSearchNote.Size = New System.Drawing.Size(214, 15)
+        Me.lblSearchNote.TabIndex = 23
+        Me.lblSearchNote.Text = "Change in Value => Auto Update"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1050, 460)
         Me.Controls.Add(Me.TabControl1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "NekoStash Inventory Manager"
         Me.TabControl1.ResumeLayout(False)
@@ -624,7 +550,7 @@ Partial Class Form1
         Me.TabPage1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.grdProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.datagridSearch, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NekoAssetsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -669,7 +595,6 @@ Partial Class Form1
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents cboxSearch As ComboBox
     Friend WithEvents Label_Search As Label
-    Friend WithEvents btnSearch As Button
     Friend WithEvents txtboxSearch As TextBox
     Friend WithEvents Label_SearchValue As Label
     Friend WithEvents NekostashDataSet As NekostashDataSet
@@ -683,17 +608,9 @@ Partial Class Form1
     Friend WithEvents txtboxSignature As TextBox
     Friend WithEvents txtboxSN As TextBox
     Friend WithEvents txtboxPIC As TextBox
-    Friend WithEvents grdProperties As DataGridView
+    Friend WithEvents datagridSearch As DataGridView
     Friend WithEvents NekostashDataSet1 As NekostashDataSet
-    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SerialDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PICDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CaseDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents MemoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents RegistrationTypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SignatureDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AccessoryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NekoAssetsBindingSource1 As BindingSource
     Friend WithEvents NekostashDataSetBindingSource As BindingSource
+    Friend WithEvents lblSearchNote As Label
 End Class
