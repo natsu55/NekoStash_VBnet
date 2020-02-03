@@ -24,30 +24,25 @@ Public Class Form1
         'Updates Registration Type Label
         If rbtnIn.Checked Then
             StorageStatus = "in"
-            btnEOL.Text = "Refresh PC (EOL) Return"
+            btnRefresh.Text = "PC Refresh"
             btnLoan.Text = "Loan PC Return"
             btnStorage.Text = "Storage"
             btnTermination.Text = "Termination"
             Label_RegistrationType.Text = ""
+            btnEOL.Visible = False
         Else
             StorageStatus = "out"
-            btnEOL.Text = "Refresh PC (EOL)"
+            btnRefresh.Text = "PC Refresh"
             btnLoan.Text = "Loan PC"
             btnStorage.Text = "Storage (Warehouse)"
             btnTermination.Text = "New Hire"
             Label_RegistrationType.Text = ""
+            btnEOL.Visible = True
         End If
     End Sub
 
     '==========Updates Registration Type label for everytime a registration button selected
-    Private Sub btnEOL_Click(sender As Object, e As EventArgs) Handles btnEOL.Click
-        Select Case True
-            Case Me.rbtnIn.Checked
-                Label_RegistrationType.Text = "[IN] " + btnEOL.Text
-            Case Me.rbtnOut.Checked
-                Label_RegistrationType.Text = "[OUT] " + btnEOL.Text
-        End Select
-    End Sub
+
 
     Private Sub btnTermination_Click(sender As Object, e As EventArgs) Handles btnTermination.Click
         Select Case True
@@ -82,6 +77,23 @@ Public Class Form1
                 Label_RegistrationType.Text = "[IN] " + btnRepair.Text
             Case Me.rbtnOut.Checked
                 Label_RegistrationType.Text = "[OUT] " + btnRepair.Text
+        End Select
+    End Sub
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        Select Case True
+            Case Me.rbtnIn.Checked
+                Label_RegistrationType.Text = "[IN] " + btnRefresh.Text
+            Case Me.rbtnOut.Checked
+                Label_RegistrationType.Text = "[OUT] " + btnRefresh.Text
+        End Select
+    End Sub
+
+    Private Sub btnReturnEOL_Click(sender As Object, e As EventArgs) Handles btnEOL.Click
+        Select Case True
+            Case Me.rbtnIn.Checked
+                btnEOL.Visible = False
+            Case Me.rbtnOut.Checked
+                Label_RegistrationType.Text = "[OUT] " + btnEOL.Text
         End Select
     End Sub
 
@@ -135,7 +147,7 @@ Public Class Form1
 
         Try
             'Submit Button
-            Me.NekoAssetsTableAdapter.Insert(Me.txtboxSN.Text, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.btnEOL.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
+            Me.NekoAssetsTableAdapter.Insert(Me.txtboxSN.Text, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.btnRefresh.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
             Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
 
             'Code to to push changes to DB
@@ -205,4 +217,5 @@ Public Class Form1
     Private Sub btnShowall_Click(sender As Object, e As EventArgs)
         Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
     End Sub
+
 End Class

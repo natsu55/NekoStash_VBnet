@@ -65,6 +65,18 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
+    <ManifestCertificateThumbprint>13B8C88DFC9CB5D2420DB5E7894CB7A4E48959D6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>NekoStash_VBnet_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
     <ApplicationIcon>nekoStash.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
