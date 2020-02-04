@@ -147,6 +147,7 @@ Public Class Form1
 
         Try
             'Submit Button
+            'Insert values from NekoStash Form1 to DB
             Me.NekoAssetsTableAdapter.Insert(Me.txtboxSN.Text, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.Label_RegistrationType.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
             Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
 
@@ -212,10 +213,7 @@ Public Class Form1
             Me.Hide()
             Login_Form.Show()
         End If
-    End Sub
 
-    Private Sub btnShowall_Click(sender As Object, e As EventArgs)
-        Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
-    End Sub
 
+    End Sub
 End Class
