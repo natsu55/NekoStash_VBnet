@@ -147,7 +147,7 @@ Public Class Form1
 
         Try
             'Submit Button
-            Me.NekoAssetsTableAdapter.Insert(Me.txtboxSN.Text, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.btnRefresh.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
+            Me.NekoAssetsTableAdapter.Insert(Me.txtboxSN.Text, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.Label_RegistrationType.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
             Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
 
             'Code to to push changes to DB
