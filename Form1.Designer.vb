@@ -87,7 +87,6 @@ Partial Class Form1
         Me.NekoAssetsTableAdapter = New NekoStash_VBnet.NekostashDataSetTableAdapters.NekoAssetsTableAdapter()
         Me.TableAdapterManager = New NekoStash_VBnet.NekostashDataSetTableAdapters.TableAdapterManager()
         Me.NekostashDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -100,11 +99,13 @@ Partial Class Form1
         CType(Me.NekoAssetsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NekostashDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
         '
+        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Location = New System.Drawing.Point(23, 17)
@@ -118,6 +119,7 @@ Partial Class Form1
         '
         Me.TabPage1.AutoScroll = True
         Me.TabPage1.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage1.Controls.Add(Me.GroupBox2)
         Me.TabPage1.Controls.Add(Me.Panel1)
         Me.TabPage1.Controls.Add(Me.PictureBox1)
         Me.TabPage1.Controls.Add(Me.Label1)
@@ -132,18 +134,20 @@ Partial Class Form1
         '
         'GroupBox2
         '
-        Me.GroupBox2.AutoSize = True
+        Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.lblSearchNote)
         Me.GroupBox2.Controls.Add(Me.datagridSearch)
         Me.GroupBox2.Controls.Add(Me.txtboxSearch)
         Me.GroupBox2.Controls.Add(Me.Label_SearchValue)
         Me.GroupBox2.Controls.Add(Me.cboxSearch)
         Me.GroupBox2.Controls.Add(Me.Label_Search)
-        Me.GroupBox2.Location = New System.Drawing.Point(603, 22)
+        Me.GroupBox2.Location = New System.Drawing.Point(585, 14)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox2.Size = New System.Drawing.Size(1116, 634)
+        Me.GroupBox2.Size = New System.Drawing.Size(1105, 600)
         Me.GroupBox2.TabIndex = 30
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Asset Search"
@@ -164,8 +168,11 @@ Partial Class Form1
         Me.datagridSearch.AllowUserToAddRows = False
         Me.datagridSearch.AllowUserToDeleteRows = False
         Me.datagridSearch.AllowUserToOrderColumns = True
-        Me.datagridSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.datagridSearch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.datagridSearch.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.datagridSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.datagridSearch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.datagridSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
@@ -175,12 +182,12 @@ Partial Class Form1
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.datagridSearch.DefaultCellStyle = DataGridViewCellStyle1
-        Me.datagridSearch.Location = New System.Drawing.Point(14, 69)
+        Me.datagridSearch.Location = New System.Drawing.Point(12, 86)
         Me.datagridSearch.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.datagridSearch.Name = "datagridSearch"
         Me.datagridSearch.ReadOnly = True
         Me.datagridSearch.RowHeadersWidth = 62
-        Me.datagridSearch.Size = New System.Drawing.Size(1094, 485)
+        Me.datagridSearch.Size = New System.Drawing.Size(1073, 485)
         Me.datagridSearch.TabIndex = 22
         '
         'txtboxSearch
@@ -748,21 +755,11 @@ Partial Class Form1
         Me.NekostashDataSetBindingSource.DataSource = Me.NekostashDataSet
         Me.NekostashDataSetBindingSource.Position = 0
         '
-        'Panel2
-        '
-        Me.Panel2.AutoSize = True
-        Me.Panel2.Controls.Add(Me.GroupBox2)
-        Me.Panel2.Location = New System.Drawing.Point(12, 145)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1732, 665)
-        Me.Panel2.TabIndex = 31
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1756, 855)
-        Me.Controls.Add(Me.Panel2)
+        Me.ClientSize = New System.Drawing.Size(1756, 708)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -785,10 +782,7 @@ Partial Class Form1
         CType(Me.NekoAssetsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NekostashDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NekostashDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TabControl1 As TabControl
@@ -854,5 +848,4 @@ Partial Class Form1
     Friend WithEvents Label11 As Label
     Friend WithEvents btnEOL As Button
     Friend WithEvents Button1 As Button
-    Friend WithEvents Panel2 As Panel
 End Class
