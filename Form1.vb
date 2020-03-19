@@ -18,6 +18,8 @@ Public Class Form1
         'TODO: This line of code loads data into the 'NekostashDataSet.NekoAssets' table. You can move, or remove it, as needed.
         con.ConnectionString = "provider=microsoft.jet.oledb.4.0;data source= ..\Debug\Nekostash.mdb"
         'Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
+        'TabControl1.
+        'TabPage1.AutoSize = True
     End Sub
 
     Private Sub rbtnIn_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnIn.CheckedChanged
@@ -136,40 +138,53 @@ Public Class Form1
     '=====SUBMIT BUTTON
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         'NOT YET IMPLEMENTED - To check empty textboxes
-        Dim emptyTextBoxes =
-            From txtbox In Me.Controls.OfType(Of TextBox)()
-            Where txtbox.Text.Length = 0
-            Select txtbox.Name
-        If emptyTextBoxes.Any Then
-            MessageBox.Show(String.Format("Please fill following textboxes: {0}",
-                    String.Join(",", emptyTextBoxes)))
+        ' Dim emptyTextBoxes =
+        'From txtbox In Me.Controls.OfType(Of TextBox)()
+        ' Where txtbox.Text.Length = 0
+        ' Select Case txtbox.Name
+        ' If emptyTextBoxes.Any Then
+        ' MessageBox.Show(String.Format("Please fill following textboxes: {0}",
+        ' String.Join(",", emptyTextBoxes)))
+        ' End If
+
+        If txtboxSN.Text.Length > 0 And Label_RegistrationType.Text.Length > 2 And txtboxPIC.Text.Length > 0 And txtboxSignature.Text.Length > 0 Then
+            'Splits text per line and inserts values to DB
+            Dim split = txtboxSN.Text.Split(vbNewLine)
+            Dim contents As String = txtboxSN.Text
+            If split.Count > 0 Then
+                Dim parts As String() = contents.Split(New String() {Environment.NewLine},
+                                           StringSplitOptions.None)
+                For Each Line As String In txtboxSN.Lines
+                    Try
+                        'Insert function
+                        Me.NekoAssetsTableAdapter.Insert(Line, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.Label_RegistrationType.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
+                        Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
+
+                        'Code to to push changes to DB
+                        Me.Validate()
+                        Me.NekoAssetsBindingSource.EndEdit()
+                        Me.TableAdapterManager.UpdateAll(Me.NekostashDataSet)
+                        Me.NekoAssetsTableAdapter.Update(Me.NekostashDataSet.NekoAssets)
+                    Catch ex As Exception
+                        MsgBox("Error occured. Please try again.")
+                    End Try
+
+                Next
+                MsgBox("DB Updated Successfully")
+
+                'Clear entered data
+                txtboxPIC.Clear()
+                txtboxCase.Clear()
+                txtboxSN.Clear()
+                txtboxMemo.Clear()
+                txtboxSignature.Clear()
+                txtboxAcc_list.Clear()
+                cboxAcc.Text = "Select Item(s)"
+                accesoryList.Clear()
+            End If
+        Else
+            MessageBox.Show("Please provide: Registration Type, PIC, S/N and Signature.")
         End If
-
-        Try
-            'Submit Button
-            'Insert values from NekoStash Form1 to DB
-            Me.NekoAssetsTableAdapter.Insert(Me.txtboxSN.Text, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.Label_RegistrationType.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
-            Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
-
-            'Code to to push changes to DB
-            Me.Validate()
-            Me.NekoAssetsBindingSource.EndEdit()
-            Me.TableAdapterManager.UpdateAll(Me.NekostashDataSet)
-            Me.NekoAssetsTableAdapter.Update(Me.NekostashDataSet.NekoAssets)
-        Catch ex As Exception
-            MsgBox("Error occured. Please try again.")
-        End Try
-        MsgBox("DB Updated Successfully")
-
-        'Clear entered data
-        txtboxPIC.Clear()
-        txtboxCase.Clear()
-        txtboxSN.Clear()
-        txtboxMemo.Clear()
-        txtboxSignature.Clear()
-        txtboxAcc_list.Clear()
-        cboxAcc.Text = "Select Item(s)"
-        accesoryList.Clear()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs)
