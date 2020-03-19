@@ -228,7 +228,5 @@ Public Class Form1
             Me.Hide()
             Login_Form.Show()
         End If
-
-
     End Sub
 End Class
