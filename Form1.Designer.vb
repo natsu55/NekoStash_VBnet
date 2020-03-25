@@ -86,6 +86,7 @@ Partial Class Form1
         Me.NekoAssetsTableAdapter = New NekoStash_VBnet.NekostashDataSetTableAdapters.NekoAssetsTableAdapter()
         Me.TableAdapterManager = New NekoStash_VBnet.NekostashDataSetTableAdapters.TableAdapterManager()
         Me.NekostashDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnTest = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -107,10 +108,11 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(15, 11)
+        Me.TabControl1.Location = New System.Drawing.Point(22, 17)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1147, 440)
+        Me.TabControl1.Size = New System.Drawing.Size(1720, 677)
         Me.TabControl1.TabIndex = 1
         '
         'TabPage1
@@ -122,10 +124,11 @@ Partial Class Form1
         Me.TabPage1.Controls.Add(Me.PictureBox1)
         Me.TabPage1.Controls.Add(Me.Label1)
         Me.TabPage1.Controls.Add(Me.GroupBox1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1139, 414)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TabPage1.Size = New System.Drawing.Size(1712, 644)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "IN/OUT"
         '
@@ -140,9 +143,11 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.Label_SearchValue)
         Me.GroupBox2.Controls.Add(Me.cboxSearch)
         Me.GroupBox2.Controls.Add(Me.Label_Search)
-        Me.GroupBox2.Location = New System.Drawing.Point(390, 9)
+        Me.GroupBox2.Location = New System.Drawing.Point(585, 14)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(737, 390)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox2.Size = New System.Drawing.Size(1106, 600)
         Me.GroupBox2.TabIndex = 30
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Asset Search"
@@ -151,9 +156,10 @@ Partial Class Form1
         '
         Me.lblSearchNote.AutoSize = True
         Me.lblSearchNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblSearchNote.Location = New System.Drawing.Point(372, 19)
+        Me.lblSearchNote.Location = New System.Drawing.Point(558, 29)
+        Me.lblSearchNote.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSearchNote.Name = "lblSearchNote"
-        Me.lblSearchNote.Size = New System.Drawing.Size(214, 15)
+        Me.lblSearchNote.Size = New System.Drawing.Size(305, 22)
         Me.lblSearchNote.TabIndex = 23
         Me.lblSearchNote.Text = "Change in Value => Auto Update"
         '
@@ -176,26 +182,29 @@ Partial Class Form1
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.datagridSearch.DefaultCellStyle = DataGridViewCellStyle1
-        Me.datagridSearch.Location = New System.Drawing.Point(8, 56)
+        Me.datagridSearch.Location = New System.Drawing.Point(12, 86)
+        Me.datagridSearch.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.datagridSearch.Name = "datagridSearch"
         Me.datagridSearch.ReadOnly = True
         Me.datagridSearch.RowHeadersWidth = 62
-        Me.datagridSearch.Size = New System.Drawing.Size(715, 315)
+        Me.datagridSearch.Size = New System.Drawing.Size(1072, 485)
         Me.datagridSearch.TabIndex = 22
         '
         'txtboxSearch
         '
-        Me.txtboxSearch.Location = New System.Drawing.Point(237, 17)
+        Me.txtboxSearch.Location = New System.Drawing.Point(356, 26)
+        Me.txtboxSearch.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtboxSearch.Name = "txtboxSearch"
-        Me.txtboxSearch.Size = New System.Drawing.Size(129, 20)
+        Me.txtboxSearch.Size = New System.Drawing.Size(192, 26)
         Me.txtboxSearch.TabIndex = 4
         '
         'Label_SearchValue
         '
         Me.Label_SearchValue.AutoSize = True
-        Me.Label_SearchValue.Location = New System.Drawing.Point(172, 20)
+        Me.Label_SearchValue.Location = New System.Drawing.Point(258, 31)
+        Me.Label_SearchValue.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label_SearchValue.Name = "Label_SearchValue"
-        Me.Label_SearchValue.Size = New System.Drawing.Size(64, 13)
+        Me.Label_SearchValue.Size = New System.Drawing.Size(95, 20)
         Me.Label_SearchValue.TabIndex = 3
         Me.Label_SearchValue.Text = "Input Value:"
         '
@@ -205,17 +214,19 @@ Partial Class Form1
         Me.cboxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboxSearch.FormattingEnabled = True
         Me.cboxSearch.Items.AddRange(New Object() {"Serial", "PIC", "Signature", "Memo"})
-        Me.cboxSearch.Location = New System.Drawing.Point(69, 17)
+        Me.cboxSearch.Location = New System.Drawing.Point(104, 26)
+        Me.cboxSearch.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cboxSearch.Name = "cboxSearch"
-        Me.cboxSearch.Size = New System.Drawing.Size(79, 21)
+        Me.cboxSearch.Size = New System.Drawing.Size(116, 28)
         Me.cboxSearch.TabIndex = 2
         '
         'Label_Search
         '
         Me.Label_Search.AutoSize = True
-        Me.Label_Search.Location = New System.Drawing.Point(7, 20)
+        Me.Label_Search.Location = New System.Drawing.Point(10, 31)
+        Me.Label_Search.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label_Search.Name = "Label_Search"
-        Me.Label_Search.Size = New System.Drawing.Size(59, 13)
+        Me.Label_Search.Size = New System.Drawing.Size(87, 20)
         Me.Label_Search.TabIndex = 0
         Me.Label_Search.Text = "Search for:"
         '
@@ -225,26 +236,29 @@ Partial Class Form1
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label_RegistrationType)
-        Me.Panel1.Location = New System.Drawing.Point(267, 3)
+        Me.Panel1.Location = New System.Drawing.Point(400, 5)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(108, 57)
+        Me.Panel1.Size = New System.Drawing.Size(160, 86)
         Me.Panel1.TabIndex = 29
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(5, 0)
+        Me.Label8.Location = New System.Drawing.Point(8, 0)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(84, 13)
+        Me.Label8.Size = New System.Drawing.Size(127, 20)
         Me.Label8.TabIndex = 27
         Me.Label8.Text = "Registration For:"
         '
         'Label_RegistrationType
         '
         Me.Label_RegistrationType.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label_RegistrationType.Location = New System.Drawing.Point(3, 14)
+        Me.Label_RegistrationType.Location = New System.Drawing.Point(4, 22)
+        Me.Label_RegistrationType.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label_RegistrationType.Name = "Label_RegistrationType"
-        Me.Label_RegistrationType.Size = New System.Drawing.Size(95, 39)
+        Me.Label_RegistrationType.Size = New System.Drawing.Size(142, 60)
         Me.Label_RegistrationType.TabIndex = 28
         Me.Label_RegistrationType.Text = "-"
         Me.Label_RegistrationType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -252,7 +266,8 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(210, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(315, 5)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(51, 57)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -263,14 +278,16 @@ Partial Class Form1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 9)
+        Me.Label1.Location = New System.Drawing.Point(4, 14)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(225, 46)
+        Me.Label1.Size = New System.Drawing.Size(331, 69)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "NekoStash"
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnTest)
         Me.GroupBox1.Controls.Add(Me.btnEOL)
         Me.GroupBox1.Controls.Add(Me.txtboxMemo)
         Me.GroupBox1.Controls.Add(Me.txtboxAcc_list)
@@ -296,74 +313,82 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.btnRefresh)
         Me.GroupBox1.Controls.Add(Me.rbtnOut)
         Me.GroupBox1.Controls.Add(Me.rbtnIn)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 60)
+        Me.GroupBox1.Location = New System.Drawing.Point(9, 92)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(367, 334)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(550, 514)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Asset Registration"
         '
         'btnEOL
         '
-        Me.btnEOL.Location = New System.Drawing.Point(115, 12)
-        Me.btnEOL.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnEOL.Location = New System.Drawing.Point(172, 18)
         Me.btnEOL.Name = "btnEOL"
-        Me.btnEOL.Size = New System.Drawing.Size(74, 26)
+        Me.btnEOL.Size = New System.Drawing.Size(111, 40)
         Me.btnEOL.TabIndex = 33
         Me.btnEOL.Text = "Return EOL"
         Me.btnEOL.UseVisualStyleBackColor = True
         '
         'txtboxMemo
         '
-        Me.txtboxMemo.Location = New System.Drawing.Point(261, 43)
+        Me.txtboxMemo.Location = New System.Drawing.Point(392, 66)
+        Me.txtboxMemo.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtboxMemo.Multiline = True
         Me.txtboxMemo.Name = "txtboxMemo"
-        Me.txtboxMemo.Size = New System.Drawing.Size(100, 87)
+        Me.txtboxMemo.Size = New System.Drawing.Size(148, 132)
         Me.txtboxMemo.TabIndex = 32
         '
         'txtboxAcc_list
         '
-        Me.txtboxAcc_list.Location = New System.Drawing.Point(194, 199)
+        Me.txtboxAcc_list.Location = New System.Drawing.Point(291, 306)
+        Me.txtboxAcc_list.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtboxAcc_list.Multiline = True
         Me.txtboxAcc_list.Name = "txtboxAcc_list"
-        Me.txtboxAcc_list.Size = New System.Drawing.Size(121, 88)
+        Me.txtboxAcc_list.Size = New System.Drawing.Size(180, 133)
         Me.txtboxAcc_list.TabIndex = 31
         '
         'txtboxCase
         '
-        Me.txtboxCase.Location = New System.Drawing.Point(194, 146)
+        Me.txtboxCase.Location = New System.Drawing.Point(291, 225)
+        Me.txtboxCase.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtboxCase.Name = "txtboxCase"
-        Me.txtboxCase.Size = New System.Drawing.Size(100, 20)
+        Me.txtboxCase.Size = New System.Drawing.Size(148, 26)
         Me.txtboxCase.TabIndex = 30
         '
         'txtboxSignature
         '
-        Me.txtboxSignature.Location = New System.Drawing.Point(64, 300)
+        Me.txtboxSignature.Location = New System.Drawing.Point(96, 462)
+        Me.txtboxSignature.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtboxSignature.Name = "txtboxSignature"
-        Me.txtboxSignature.Size = New System.Drawing.Size(100, 20)
+        Me.txtboxSignature.Size = New System.Drawing.Size(148, 26)
         Me.txtboxSignature.TabIndex = 29
         '
         'txtboxSN
         '
-        Me.txtboxSN.Location = New System.Drawing.Point(33, 173)
+        Me.txtboxSN.Location = New System.Drawing.Point(50, 266)
+        Me.txtboxSN.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtboxSN.Multiline = True
         Me.txtboxSN.Name = "txtboxSN"
-        Me.txtboxSN.Size = New System.Drawing.Size(100, 118)
+        Me.txtboxSN.Size = New System.Drawing.Size(148, 179)
         Me.txtboxSN.TabIndex = 28
         '
         'txtboxPIC
         '
-        Me.txtboxPIC.Location = New System.Drawing.Point(33, 146)
+        Me.txtboxPIC.Location = New System.Drawing.Point(50, 225)
+        Me.txtboxPIC.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtboxPIC.Name = "txtboxPIC"
-        Me.txtboxPIC.Size = New System.Drawing.Size(100, 20)
+        Me.txtboxPIC.Size = New System.Drawing.Size(148, 26)
         Me.txtboxPIC.TabIndex = 27
         '
         'btnClear
         '
         Me.btnClear.BackColor = System.Drawing.SystemColors.InactiveBorder
-        Me.btnClear.Location = New System.Drawing.Point(293, 297)
+        Me.btnClear.Location = New System.Drawing.Point(440, 457)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(59, 22)
+        Me.btnClear.Size = New System.Drawing.Size(88, 34)
         Me.btnClear.TabIndex = 26
         Me.btnClear.Text = "Clear All"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -371,17 +396,19 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(134, 178)
+        Me.Label7.Location = New System.Drawing.Point(201, 274)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(56, 13)
+        Me.Label7.Size = New System.Drawing.Size(82, 20)
         Me.Label7.TabIndex = 25
         Me.Label7.Text = "Accessory"
         '
         'btnAddAccessory
         '
-        Me.btnAddAccessory.Location = New System.Drawing.Point(321, 173)
+        Me.btnAddAccessory.Location = New System.Drawing.Point(482, 266)
+        Me.btnAddAccessory.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnAddAccessory.Name = "btnAddAccessory"
-        Me.btnAddAccessory.Size = New System.Drawing.Size(44, 23)
+        Me.btnAddAccessory.Size = New System.Drawing.Size(66, 35)
         Me.btnAddAccessory.TabIndex = 24
         Me.btnAddAccessory.Text = "Add"
         Me.btnAddAccessory.UseVisualStyleBackColor = True
@@ -389,9 +416,10 @@ Partial Class Form1
         'btnSubmit
         '
         Me.btnSubmit.BackColor = System.Drawing.SystemColors.InactiveBorder
-        Me.btnSubmit.Location = New System.Drawing.Point(227, 297)
+        Me.btnSubmit.Location = New System.Drawing.Point(340, 457)
+        Me.btnSubmit.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnSubmit.Name = "btnSubmit"
-        Me.btnSubmit.Size = New System.Drawing.Size(60, 22)
+        Me.btnSubmit.Size = New System.Drawing.Size(90, 34)
         Me.btnSubmit.TabIndex = 22
         Me.btnSubmit.Text = "Submit"
         Me.btnSubmit.UseVisualStyleBackColor = False
@@ -401,107 +429,119 @@ Partial Class Form1
         Me.cboxAcc.AutoCompleteCustomSource.AddRange(New String() {"AC Adapter", "LAN Adapter", "HDMI to VGA", "Other"})
         Me.cboxAcc.FormattingEnabled = True
         Me.cboxAcc.Items.AddRange(New Object() {"Apple - AC Adapter", "Lenovo - AC Adapter", "LAN Adapter (USB A)", "LAN Adapter (USB C)", "OTHER -"})
-        Me.cboxAcc.Location = New System.Drawing.Point(194, 175)
+        Me.cboxAcc.Location = New System.Drawing.Point(291, 269)
+        Me.cboxAcc.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cboxAcc.Name = "cboxAcc"
-        Me.cboxAcc.Size = New System.Drawing.Size(121, 21)
+        Me.cboxAcc.Size = New System.Drawing.Size(180, 28)
         Me.cboxAcc.TabIndex = 23
         Me.cboxAcc.Text = "Select item(s)"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(291, 27)
+        Me.Label6.Location = New System.Drawing.Point(436, 42)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(36, 13)
+        Me.Label6.Size = New System.Drawing.Size(53, 20)
         Me.Label6.TabIndex = 16
         Me.Label6.Text = "Memo"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(147, 149)
+        Me.Label5.Location = New System.Drawing.Point(220, 229)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(41, 13)
+        Me.Label5.Size = New System.Drawing.Size(59, 20)
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Case #"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 302)
+        Me.Label4.Location = New System.Drawing.Point(9, 465)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(52, 13)
+        Me.Label4.Size = New System.Drawing.Size(78, 20)
         Me.Label4.TabIndex = 14
         Me.Label4.Text = "Signature"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(3, 175)
+        Me.Label3.Location = New System.Drawing.Point(4, 269)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(27, 13)
+        Me.Label3.Size = New System.Drawing.Size(35, 20)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "S/N"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(3, 149)
+        Me.Label2.Location = New System.Drawing.Point(4, 229)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(24, 13)
+        Me.Label2.Size = New System.Drawing.Size(35, 20)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "PIC"
         '
         'btnOther
         '
-        Me.btnOther.Location = New System.Drawing.Point(175, 89)
+        Me.btnOther.Location = New System.Drawing.Point(262, 137)
+        Me.btnOther.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnOther.Name = "btnOther"
-        Me.btnOther.Size = New System.Drawing.Size(75, 41)
+        Me.btnOther.Size = New System.Drawing.Size(112, 63)
         Me.btnOther.TabIndex = 11
         Me.btnOther.Text = "Other"
         Me.btnOther.UseVisualStyleBackColor = True
         '
         'btnRepair
         '
-        Me.btnRepair.Location = New System.Drawing.Point(94, 89)
+        Me.btnRepair.Location = New System.Drawing.Point(141, 137)
+        Me.btnRepair.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnRepair.Name = "btnRepair"
-        Me.btnRepair.Size = New System.Drawing.Size(75, 41)
+        Me.btnRepair.Size = New System.Drawing.Size(112, 63)
         Me.btnRepair.TabIndex = 10
         Me.btnRepair.Text = "Repair"
         Me.btnRepair.UseVisualStyleBackColor = True
         '
         'btnStorage
         '
-        Me.btnStorage.Location = New System.Drawing.Point(8, 89)
+        Me.btnStorage.Location = New System.Drawing.Point(12, 137)
+        Me.btnStorage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnStorage.Name = "btnStorage"
-        Me.btnStorage.Size = New System.Drawing.Size(80, 41)
+        Me.btnStorage.Size = New System.Drawing.Size(120, 63)
         Me.btnStorage.TabIndex = 9
         Me.btnStorage.Text = "Storage"
         Me.btnStorage.UseVisualStyleBackColor = True
         '
         'btnLoan
         '
-        Me.btnLoan.Location = New System.Drawing.Point(175, 43)
+        Me.btnLoan.Location = New System.Drawing.Point(262, 66)
+        Me.btnLoan.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnLoan.Name = "btnLoan"
-        Me.btnLoan.Size = New System.Drawing.Size(75, 41)
+        Me.btnLoan.Size = New System.Drawing.Size(112, 63)
         Me.btnLoan.TabIndex = 8
         Me.btnLoan.Text = "Loan PC"
         Me.btnLoan.UseVisualStyleBackColor = True
         '
         'btnTermination
         '
-        Me.btnTermination.Location = New System.Drawing.Point(94, 43)
+        Me.btnTermination.Location = New System.Drawing.Point(141, 66)
+        Me.btnTermination.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnTermination.Name = "btnTermination"
-        Me.btnTermination.Size = New System.Drawing.Size(75, 41)
+        Me.btnTermination.Size = New System.Drawing.Size(112, 63)
         Me.btnTermination.TabIndex = 7
         Me.btnTermination.Text = "Termination"
         Me.btnTermination.UseVisualStyleBackColor = True
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(8, 43)
+        Me.btnRefresh.Location = New System.Drawing.Point(12, 66)
+        Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(80, 41)
+        Me.btnRefresh.Size = New System.Drawing.Size(120, 63)
         Me.btnRefresh.TabIndex = 6
         Me.btnRefresh.Text = "Refresh PC"
         Me.btnRefresh.UseVisualStyleBackColor = True
@@ -509,9 +549,10 @@ Partial Class Form1
         'rbtnOut
         '
         Me.rbtnOut.AutoSize = True
-        Me.rbtnOut.Location = New System.Drawing.Point(56, 19)
+        Me.rbtnOut.Location = New System.Drawing.Point(84, 29)
+        Me.rbtnOut.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.rbtnOut.Name = "rbtnOut"
-        Me.rbtnOut.Size = New System.Drawing.Size(54, 17)
+        Me.rbtnOut.Size = New System.Drawing.Size(75, 24)
         Me.rbtnOut.TabIndex = 5
         Me.rbtnOut.Text = "[OUT]"
         Me.rbtnOut.UseVisualStyleBackColor = True
@@ -519,9 +560,10 @@ Partial Class Form1
         'rbtnIn
         '
         Me.rbtnIn.AutoSize = True
-        Me.rbtnIn.Location = New System.Drawing.Point(8, 19)
+        Me.rbtnIn.Location = New System.Drawing.Point(12, 29)
+        Me.rbtnIn.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.rbtnIn.Name = "rbtnIn"
-        Me.rbtnIn.Size = New System.Drawing.Size(42, 17)
+        Me.rbtnIn.Size = New System.Drawing.Size(58, 24)
         Me.rbtnIn.TabIndex = 4
         Me.rbtnIn.Text = "[IN]"
         Me.rbtnIn.UseVisualStyleBackColor = True
@@ -535,10 +577,11 @@ Partial Class Form1
         Me.TabPage2.Controls.Add(Me.ComboBox1)
         Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Controls.Add(Me.NekoAssetsDataGridView)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1139, 414)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TabPage2.Size = New System.Drawing.Size(1712, 644)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "DB Admin"
         '
@@ -546,25 +589,28 @@ Partial Class Form1
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label9.Location = New System.Drawing.Point(370, 8)
+        Me.Label9.Location = New System.Drawing.Point(555, 12)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(214, 15)
+        Me.Label9.Size = New System.Drawing.Size(305, 22)
         Me.Label9.TabIndex = 28
         Me.Label9.Text = "Change in Value => Auto Update"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(224, 6)
+        Me.TextBox1.Location = New System.Drawing.Point(336, 9)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(138, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(205, 26)
         Me.TextBox1.TabIndex = 27
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(159, 9)
+        Me.Label10.Location = New System.Drawing.Point(238, 14)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(64, 13)
+        Me.Label10.Size = New System.Drawing.Size(95, 20)
         Me.Label10.TabIndex = 26
         Me.Label10.Text = "Input Value:"
         '
@@ -574,17 +620,19 @@ Partial Class Form1
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Serial", "PIC", "Signature", "Memo"})
-        Me.ComboBox1.Location = New System.Drawing.Point(70, 6)
+        Me.ComboBox1.Location = New System.Drawing.Point(105, 9)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(79, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(116, 28)
         Me.ComboBox1.TabIndex = 25
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(8, 9)
+        Me.Label11.Location = New System.Drawing.Point(12, 14)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(59, 13)
+        Me.Label11.Size = New System.Drawing.Size(87, 20)
         Me.Label11.TabIndex = 24
         Me.Label11.Text = "Search for:"
         '
@@ -594,10 +642,11 @@ Partial Class Form1
         Me.NekoAssetsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.NekoAssetsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10})
         Me.NekoAssetsDataGridView.DataSource = Me.NekoAssetsBindingSource
-        Me.NekoAssetsDataGridView.Location = New System.Drawing.Point(6, 33)
+        Me.NekoAssetsDataGridView.Location = New System.Drawing.Point(9, 51)
+        Me.NekoAssetsDataGridView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.NekoAssetsDataGridView.Name = "NekoAssetsDataGridView"
         Me.NekoAssetsDataGridView.RowHeadersWidth = 62
-        Me.NekoAssetsDataGridView.Size = New System.Drawing.Size(944, 375)
+        Me.NekoAssetsDataGridView.Size = New System.Drawing.Size(1416, 577)
         Me.NekoAssetsDataGridView.TabIndex = 0
         '
         'DataGridViewTextBoxColumn1
@@ -697,13 +746,23 @@ Partial Class Form1
         Me.NekostashDataSetBindingSource.DataSource = Me.NekostashDataSet
         Me.NekostashDataSetBindingSource.Position = 0
         '
+        'btnTest
+        '
+        Me.btnTest.Location = New System.Drawing.Point(204, 359)
+        Me.btnTest.Name = "btnTest"
+        Me.btnTest.Size = New System.Drawing.Size(75, 30)
+        Me.btnTest.TabIndex = 34
+        Me.btnTest.Text = "Test"
+        Me.btnTest.UseVisualStyleBackColor = True
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1171, 460)
+        Me.ClientSize = New System.Drawing.Size(1756, 708)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form1"
         Me.Text = "NekoStash Inventory Manager"
         Me.TabControl1.ResumeLayout(False)
@@ -788,4 +847,5 @@ Partial Class Form1
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label11 As Label
     Friend WithEvents btnEOL As Button
+    Friend WithEvents btnTest As Button
 End Class

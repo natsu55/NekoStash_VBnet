@@ -157,8 +157,11 @@ Public Class Form1
                 For Each Line As String In txtboxSN.Lines
                     Try
                         'Insert function
-                        Me.NekoAssetsTableAdapter.Insert(Line, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.Label_RegistrationType.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
-                        Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
+                        If Line.Length > 0 Then
+                            Me.NekoAssetsTableAdapter.Insert(Line, Me.StorageStatus, Me.txtboxPIC.Text, Me.txtboxCase.Text, Me.txtboxMemo.Text, Me.Label_RegistrationType.Text, Me.txtboxSignature.Text, String.Join(",", accesoryList.ToArray))
+                            Me.NekoAssetsTableAdapter.Fill(Me.NekostashDataSet.NekoAssets)
+                        End If
+
 
                         'Code to to push changes to DB
                         Me.Validate()
@@ -227,6 +230,46 @@ Public Class Form1
         If TabControl1.SelectedIndex = 1 Then
             Me.Hide()
             Login_Form.Show()
+        End If
+    End Sub
+
+    Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
+        If txtboxSN.Text.Length > 0 And Label_RegistrationType.Text.Length > 2 And txtboxPIC.Text.Length > 0 And txtboxSignature.Text.Length > 0 Then
+            'Splits text per line and inserts values to DB
+            Dim split = txtboxSN.Text.Split(vbNewLine)
+            Dim contents As String = txtboxSN.Text
+            If split.Count > 0 Then
+                Dim parts As String() = contents.Split(New String() {Environment.NewLine},
+                                           StringSplitOptions.None)
+                For Each Line As String In txtboxSN.Lines
+                    Try
+                        'Insert function
+                        If Line.Length > 0 Then
+                            MsgBox(Line)
+                        End If
+
+
+                        'Code to to push changes to DB
+
+                    Catch ex As Exception
+                        MsgBox("Error occured. Please try again.")
+                    End Try
+
+                Next
+                MsgBox("DB Updated Successfully")
+
+                'Clear entered data
+                txtboxPIC.Clear()
+                txtboxCase.Clear()
+                txtboxSN.Clear()
+                txtboxMemo.Clear()
+                txtboxSignature.Clear()
+                txtboxAcc_list.Clear()
+                cboxAcc.Text = "Select Item(s)"
+                accesoryList.Clear()
+            End If
+        Else
+            MessageBox.Show("Please provide: Registration Type, PIC, S/N and Signature.")
         End If
     End Sub
 End Class
